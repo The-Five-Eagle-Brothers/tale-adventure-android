@@ -1,4 +1,4 @@
-package com.android.ssutudy.presentation.base
+package com.taleadventure.teamfiveeagles.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,10 +14,10 @@ abstract class BaseViewBindingFragment<VB : ViewBinding> : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
-        container: ViewGroup?,
+        parent: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = setBinding(inflater, container)
+        _binding = setBinding(inflater, parent)
         return binding.root
     }
 

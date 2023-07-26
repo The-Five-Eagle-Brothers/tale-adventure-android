@@ -1,7 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
+
+def Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     namespace 'com.taleadventure.teamfiveeagles'
@@ -15,6 +20,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "KAKAO_NATIVE_APP_KEY", properties["kakao.native.app.key"]
     }
 
     buildTypes {
@@ -31,6 +37,7 @@ android {
         jvmTarget = '11'
     }
     buildFeatures {
+        buildConfig true
         viewBinding true
         dataBinding true
     }
@@ -38,11 +45,35 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.fragment:fragment-ktx:1.6.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.core:core-ktx:1.10.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    // viewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    // Jetpack Navigation
+    // Kotlin
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+    // kakao
+    implementation 'com.kakao.sdk:v2-user:2.15.0' // 카카오 로그인
+    implementation 'com.kakao.sdk:v2-talk:2.15.0' // 친구, 메시지(카카오톡)
+    implementation 'com.kakao.sdk:v2-share:2.15.0' // 메시지(카카오톡 공유)
+    implementation 'com.kakao.sdk:v2-friend:2.15.0' // 카카오톡 소셜 피커, 리소스 번들 파일 포함
+    // Timber
+    implementation 'com.jakewharton.timber:timber:5.0.1'
+    // kotlin serialization
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0'
+    // okhttp
+    implementation(platform 'com.squareup.okhttp3:okhttp-bom:4.11.0')
+    implementation 'com.squareup.okhttp3:okhttp'
+    implementation 'com.squareup.okhttp3:logging-interceptor'
+    // Encrypted Shared Preferences
+    implementation "androidx.security:security-crypto-ktx:1.1.0-alpha06"
 }

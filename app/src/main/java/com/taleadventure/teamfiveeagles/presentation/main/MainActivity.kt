@@ -1,12 +1,15 @@
 package com.taleadventure.teamfiveeagles.presentation.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.taleadventure.teamfiveeagles.R
+import android.view.LayoutInflater
+import com.taleadventure.teamfiveeagles.databinding.ActivityMainBinding
+import com.taleadventure.teamfiveeagles.presentation.base.BaseViewBindingActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseViewBindingActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
     }
+
+    override fun setBinding(layoutInflater: LayoutInflater): ActivityMainBinding =
+        ActivityMainBinding.inflate(layoutInflater)
 }

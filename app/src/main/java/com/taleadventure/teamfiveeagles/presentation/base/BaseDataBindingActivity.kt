@@ -1,4 +1,4 @@
-package com.android.ssutudy.presentation.base
+package com.taleadventure.teamfiveeagles.presentation.base
 
 import android.os.Bundle
 import android.view.MotionEvent
