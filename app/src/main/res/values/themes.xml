@@ -7,4 +7,10 @@
     </style>
 
     <style name="Theme.TaleAdventure" parent="Base.Theme.TaleAdventure" />
+
+    <style name="Theme.TaleAdventure.AgeCategoryButton">
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:textAppearance">@style/M25</item>
+        <item name="android:textColor">@color/black_000000</item>
+    </style>
 </resources>
