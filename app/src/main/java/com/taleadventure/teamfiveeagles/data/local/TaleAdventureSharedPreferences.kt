@@ -16,12 +16,11 @@ object TaleAdventureSharedPreferences {
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build()
 
         preferences = if (BuildConfig.DEBUG) context.getSharedPreferences(
-            context.getString(R.string.preference_file_name, context.packageName),
-            Context.MODE_PRIVATE
+            context.getString(R.string.preference_file_name), Context.MODE_PRIVATE
         )
         else EncryptedSharedPreferences.create(
             context,
-            context.getString(R.string.preference_file_name, context.packageName),
+            context.getString(R.string.preference_file_name),
             masterKeyAlias,
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
