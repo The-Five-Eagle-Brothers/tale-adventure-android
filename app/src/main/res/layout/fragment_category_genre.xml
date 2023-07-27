@@ -1,9 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.home.view.HomeFragment">
 
+    <ImageView
+        android:id="@+id/iv_category_genre_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/cd_category_indicator_second"
+        android:src="@drawable/ic_category_second"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_category_genre_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="74dp"
+        android:gravity="center"
+        android:text="@string/category_genre_title"
+        android:textAppearance="@style/M20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_category_genre_indicator" />
+
+    <TextView
+        android:id="@+id/tv_category_genre_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category_genre_desc"
+        android:textAppearance="@style/M12"
+        app:layout_constraintEnd_toEndOf="@id/tv_category_genre_title"
+        app:layout_constraintStart_toStartOf="@id/tv_category_genre_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_category_genre_title" />
+
+    <LinearLayout
+        android:id="@+id/layout_category_genre"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="19dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="2"
+        app:layout_constraintDimensionRatio="13:6"
+        app:layout_constraintTop_toBottomOf="@id/tv_category_genre_desc">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_solid_white_radius_10_change_stroke"
+            android:gravity="center"
+            android:text="국내 동화"
+            android:textAppearance="@style/B25" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_solid_white_radius_10_change_stroke"
+            android:gravity="center"
+            android:text="서양 동화"
+            android:textAppearance="@style/B25" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_category_genre_language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="희망하는 언어를 선택해주세요"
+        android:textAppearance="@style/M20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_category_genre" />
+
+    <LinearLayout
+        android:id="@+id/layout_category_language"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="19dp"
+        android:layout_marginTop="20dp"
+        android:weightSum="3"
+        app:layout_constraintDimensionRatio="332:100"
+        app:layout_constraintTop_toBottomOf="@id/tv_category_genre_language">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_solid_white_radius_10_change_stroke"
+            android:gravity="center"
+            android:text="한국어\n(KOR)"
+            android:textAppearance="@style/B25" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_solid_white_radius_10_change_stroke"
+            android:gravity="center"
+            android:text="영어\n(ENG)"
+            android:textAppearance="@style/B25" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="2dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_solid_white_radius_10_change_stroke"
+            android:gravity="center"
+            android:text="일본어\n(JPN)"
+            android:textAppearance="@style/B25" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_category_age_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/selector_radius_30_change_solid"
+        android:enabled="false"
+        android:paddingVertical="10dp"
+        android:text="@string/complete"
+        android:textAppearance="@style/Sb16"
+        android:textColor="@color/black_000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_category_language" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
