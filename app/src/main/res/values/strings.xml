@@ -8,6 +8,10 @@
     <string name="age_7_to_8">7세 ~ 8세</string>
     <string name="age_9_to_10">9세 ~ 10세</string>
     <string name="app_logo">앱 로고</string>
-    <string name="category_indicator_first">카테고리 첫 번째 페이지</string>
+    <string name="cd_category_indicator_first">카테고리 첫 번째 페이지</string>
+    <string name="cd_category_indicator_second">카테고리 두 번째 페이지</string>
     <string name="next">다음</string>
+    <string name="category_genre_title">좋아하는 장르를 골라주세요</string>
+    <string name="category_genre_desc">중복 선택 가능</string>
+    <string name="complete">카테고리 설정 완료!</string>
 </resources>

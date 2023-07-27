@@ -10,7 +10,7 @@
         android:id="@+id/iv_category_age_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/category_indicator_first"
+        android:contentDescription="@string/cd_category_indicator_first"
         android:src="@drawable/ic_category_first"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
