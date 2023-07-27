@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Tale Adventure</string>
     <string name="preference_file_name">%s.PREFERENCE_FILE</string>
-    <string name="kakao_login">kakao login</string>
+    <string name="kakao_login">카카오 로그인</string>
+    <string name="category_age_title">아이의 나이대를 골라주세요</string>
+    <string name="age_3_to_4">3세 ~ 4세</string>
+    <string name="age_5_to_6">5세 ~ 6세</string>
+    <string name="age_7_to_8">7세 ~ 8세</string>
+    <string name="age_9_to_10">9세 ~ 10세</string>
+    <string name="app_logo">앱 로고</string>
+    <string name="category_indicator_first">카테고리 첫 번째 페이지</string>
+    <string name="next">다음</string>
 </resources>
