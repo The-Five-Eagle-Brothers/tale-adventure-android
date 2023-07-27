@@ -1,9 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.TaleAdventure" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:background">@color/bg_f0f0f0</item>
     </style>
 
     <style name="Theme.TaleAdventure" parent="Base.Theme.TaleAdventure" />
+
+    <style name="Theme.TaleAdventure.AgeCategoryButton">
+        <item name="android:background">@drawable/selector_solid_white_radius_10_change_stroke
+        </item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:textAppearance">@style/B25</item>
+        <item name="android:textColor">@color/black_000000</item>
+    </style>
 </resources>

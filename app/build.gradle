@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.serialization'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'androidx.navigation.safeargs'
 }
 
 def Properties properties = new Properties()
@@ -57,7 +58,6 @@ dependencies {
     // viewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     // Jetpack Navigation
-    // Kotlin
     implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
     // kakao

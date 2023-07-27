@@ -1,4 +1,4 @@
-package com.android.ssutudy.util.extensions
+package com.taleadventure.teamfiveeagles.util.extensions
 
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
