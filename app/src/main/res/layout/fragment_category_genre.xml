@@ -50,6 +50,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_category_genre_desc">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_category_genre_domestic"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginVertical="2dp"
@@ -62,6 +63,7 @@
             android:textAppearance="@style/B25" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_category_genre_western"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginVertical="2dp"
@@ -98,6 +100,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_category_genre_language">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_category_genre_kor"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginVertical="2dp"
@@ -110,6 +113,7 @@
             android:textAppearance="@style/B25" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_category_genre_eng"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginVertical="2dp"
@@ -121,6 +125,7 @@
             android:textAppearance="@style/B25" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_category_genre_jpn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginVertical="2dp"
@@ -134,7 +139,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_category_age_next"
+        android:id="@+id/btn_category_genre_complete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
