@@ -1,4 +1,4 @@
-package com.android.ssutudy.util.extensions
+package com.open6.taleadventure.util.extensions
 
 import android.view.View
 import android.widget.Toast

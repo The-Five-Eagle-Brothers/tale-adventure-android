@@ -1,4 +1,4 @@
-package com.android.ssutudy.util
+package com.open6.taleadventure.util
 
 import androidx.recyclerview.widget.DiffUtil
 

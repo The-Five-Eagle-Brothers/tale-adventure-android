@@ -1,4 +1,4 @@
-package com.android.ssutudy.util.extensions
+package com.open6.taleadventure.util.extensions
 
 import android.app.Activity
 import android.view.View

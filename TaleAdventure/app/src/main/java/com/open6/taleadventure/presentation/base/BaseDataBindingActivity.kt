@@ -1,4 +1,4 @@
-package com.android.ssutudy.presentation.base
+package com.open6.taleadventure.presentation.base
 
 import android.os.Bundle
 import android.view.MotionEvent
@@ -7,12 +7,12 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.android.ssutudy.util.extensions.hideKeyboard
+import com.open6.taleadventure.util.extensions.hideKeyboard
 
 abstract class BaseDataBindingActivity<DB : ViewDataBinding>(@LayoutRes private val layoutResId: Int) :
     AppCompatActivity() {
 
-    lateinit var binding: DB
+    protected lateinit var binding: DB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
