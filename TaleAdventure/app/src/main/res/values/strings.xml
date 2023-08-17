@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Tale Adventure</string>
+    <string name="preference_file_name">%s.PREFERENCE_FILE</string>
+</resources>
