@@ -3,6 +3,7 @@ package com.open6.taleadventure.presentation.base
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.view.WindowManager
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -18,6 +19,14 @@ abstract class BaseDataBindingActivity<DB : ViewDataBinding>(@LayoutRes private 
         super.onCreate(savedInstanceState)
         setContentView(getInflatedLayout())
         bindViewModelWithBinding()
+        makeStatusBarTransparent()
+    }
+
+    private fun makeStatusBarTransparent() {
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
     }
 
     protected abstract fun bindViewModelWithBinding()
