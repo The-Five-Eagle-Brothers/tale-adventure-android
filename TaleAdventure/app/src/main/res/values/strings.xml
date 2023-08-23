@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Tale Adventure</string>
     <string name="preference_file_name">%s.PREFERENCE_FILE</string>
+    <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
+    <!--Onboarding-->
+    <string name="onboard_first_fragment">OnboardFirstFragment</string>
+    <string name="onboard_second_fragment">OnboardSecondFragment</string>
+    <string name="onboard_third_fragment">OnboardThirdFragment</string>
+    <string name="onboard_fourth_fragment">onboard_fourth_fragment</string>
+    <string name="onboard_fifth_fragment">OnboardFifthFragment</string>
 </resources>
