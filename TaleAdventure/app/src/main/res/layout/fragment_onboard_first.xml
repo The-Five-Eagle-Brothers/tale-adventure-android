@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,6 +14,102 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".presentation.onboard.view.OnboardFirstFragment">
+
+        <TextView
+            android:id="@+id/tv_onboard_first_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="86dp"
+            android:text="@string/onboard_first_title"
+            android:textAppearance="@style/B28"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@id/iv_onboard_first_bg"
+            app:layout_constraintTop_toBottomOf="@id/tv_onboard_first_title">
+
+            <TextView
+                android:id="@+id/tv_onboard_first_age_first"
+                style="@style/SelectButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:paddingVertical="21dp"
+                android:text="@string/onboard_first_age_under_2"
+                app:layout_constraintEnd_toStartOf="@id/tv_onboard_first_age_second"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_onboard_first_age_second"
+                style="@style/SelectButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:maxHeight="64dp"
+                android:paddingVertical="21dp"
+                android:text="@string/onboard_first_age_3_to_5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_onboard_first_age_first"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_onboard_first_age_third"
+                style="@style/SelectButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
+                android:paddingVertical="21dp"
+                android:text="@string/onboard_first_age_6_to_8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_onboard_first_age_fourth"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_onboard_first_age_second" />
+
+            <TextView
+                android:id="@+id/tv_onboard_first_age_fourth"
+                style="@style/SelectButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:paddingVertical="21dp"
+                android:text="@string/onboard_first_age_higher_9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_onboard_first_age_third"
+                app:layout_constraintTop_toBottomOf="@id/tv_onboard_first_age_second" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_onboard_first_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="58dp"
+            android:contentDescription="@string/cd_onboard_first_bg"
+            android:src="@drawable/img_onboard_first_bg"
+            app:layout_constraintBottom_toTopOf="@id/tv_onboard_first_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_onboard_first_next"
+            style="@style/LButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
