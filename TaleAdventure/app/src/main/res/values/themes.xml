@@ -4,11 +4,25 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="android:background">@color/white</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.TaleAdventure" parent="Base.Theme.TaleAdventure" />
+
+    <style name="LButton" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/B28</item>
+        <item name="android:background">@drawable/bg_selector_gray100_purple300_radius_63</item>
+        <item name="android:textColor">@color/text_color_l_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingVertical">14dp</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="SelectButton" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/B19</item>
+        <item name="android:background">@drawable/bg_selector_gray40_purple100_radius_12</item>
+        <item name="android:textColor">@color/text_color_select_button</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
