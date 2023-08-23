@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.open6.taleadventure.util.extensions.hideKeyboard
@@ -15,6 +16,14 @@ abstract class BaseViewBindingActivity<VB : ViewBinding> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getInflatedLayout(layoutInflater))
+        makeStatusBarTransparent()
+    }
+
+    private fun makeStatusBarTransparent() {
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
     }
 
     protected abstract fun setBinding(inflater: LayoutInflater): VB
