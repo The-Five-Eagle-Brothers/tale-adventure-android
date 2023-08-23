@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Tale Adventure</string>
     <string name="preference_file_name">%s.PREFERENCE_FILE</string>
+    <!--Public-->
+    <string name="next">다음</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
@@ -10,4 +12,10 @@
     <string name="onboard_third_fragment">OnboardThirdFragment</string>
     <string name="onboard_fourth_fragment">onboard_fourth_fragment</string>
     <string name="onboard_fifth_fragment">OnboardFifthFragment</string>
+    <string name="cd_onboard_first_bg">온보딩 첫 번째 화면 배경</string>
+    <string name="onboard_first_title">환영합니다 :)\n아이의 나이대를\n골라주세요.</string>
+    <string name="onboard_first_age_under_2">2세 이하</string>
+    <string name="onboard_first_age_3_to_5">3~5세</string>
+    <string name="onboard_first_age_6_to_8">6~8세</string>
+    <string name="onboard_first_age_higher_9">9세 이상</string>
 </resources>
