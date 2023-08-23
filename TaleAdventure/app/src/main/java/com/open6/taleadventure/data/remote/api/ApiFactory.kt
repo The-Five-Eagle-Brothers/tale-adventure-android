@@ -3,6 +3,7 @@ package com.open6.taleadventure.data.remote.api
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.open6.taleadventure.BuildConfig
 import com.open6.taleadventure.data.remote.interceptor.TokenInterceptor
+import com.open6.taleadventure.data.remote.service.LoginService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -31,6 +32,6 @@ object ApiFactory {
     inline fun <reified T> create(): T = retrofit.create(T::class.java)
 
     object ServicePool {
-
+        val loginService = create<LoginService>()
     }
 }
