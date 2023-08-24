@@ -16,7 +16,6 @@
         <item name="android:textColor">@color/text_color_l_button</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingVertical">14dp</item>
-        <item name="android:enabled">false</item>
     </style>
 
     <style name="SelectButton" parent="Widget.AppCompat.TextView">
