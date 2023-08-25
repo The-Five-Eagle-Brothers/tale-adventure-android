@@ -105,6 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="28dp"
+            android:contentDescription="@string/cd_onboard_first_indicator"
             android:src="@drawable/ic_onboard_first_indicator"
             app:layout_constraintBottom_toTopOf="@id/tv_onboard_first_next"
             app:layout_constraintEnd_toEndOf="parent"
