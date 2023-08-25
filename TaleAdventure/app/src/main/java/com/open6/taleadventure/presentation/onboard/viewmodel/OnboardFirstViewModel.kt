@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
-import timber.log.Timber
 
 class OnboardFirstViewModel : ViewModel() {
     private var ageMap: MutableMap<View, Int>? = null
@@ -13,32 +12,34 @@ class OnboardFirstViewModel : ViewModel() {
         this.ageMap = ageMap
     }
 
-    private val selectedTextView: MutableLiveData<View?> = MutableLiveData(null)
-    private val selectedMaxAge: LiveData<Int?> = selectedTextView.map { textView ->
-        ageMap?.get(textView)
+    private val selectedView: MutableLiveData<View?> = MutableLiveData(null)
+    private val selectedMaxAge: LiveData<Int?> = selectedView.map { selectedView ->
+        ageMap?.get(selectedView)
     }
-    val isSelectedTextViewExist: LiveData<Boolean> = selectedTextView.map { textView ->
-        textView != null
+    val isSelectedViewExist: LiveData<Boolean> = selectedView.map { selectedView ->
+        selectedView != null
     }
 
     fun setSelectedView(newView: View) {
-        if (selectedTextView.value == null) {
-            selectedTextView.value = newView
+        /** 선택된 View 없음 */
+        if (selectedView.value == null) {
+            selectedView.value = newView
             newView.isSelected = true
             return
         }
-
-        if (selectedTextView.value == newView) {
-            selectedTextView.value = null
+        /** 선택된 View == 내가 선택한 View */
+        if (selectedView.value == newView) {
+            selectedView.value = null
             newView.isSelected = false
-            Timber.e(selectedTextView.value.toString())
             return
         }
-
-        selectedTextView.value?.isSelected = false
+        /** 선택된 View != 내가 선택한 View */
+        selectedView.value?.isSelected = false
         newView.isSelected = true
-        selectedTextView.value = newView
+        selectedView.value = newView
+    }
 
-        Timber.e(selectedTextView.value.toString())
+    fun resetSelectedView() {
+        selectedView.value = null
     }
 }
