@@ -38,7 +38,7 @@ class OnboardThirdFragment :
 
     private fun setNextTVClickEvent() {
         binding.tvOnboardThirdNext.setOnClickListener {
-            navController.navigate(R.id.action_onboardSecondFragment_to_onboardThirdFragment)
+            navController.navigate(R.id.action_onboardThirdFragment_to_onboardFourthFragment)
             viewModel.resetSelectedView()
         }
     }
