@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/onboard_nav_graph"
+    app:startDestination="@id/onboard_first_fragment">
+
+    <fragment
+        android:id="@+id/onboard_first_fragment"
+        android:name="com.open6.taleadventure.presentation.onboard.view.OnboardFirstFragment"
+        android:label="@string/onboard_first_fragment">
+        <action
+            android:id="@+id/action_onboardFirstFragment_to_onboardSecondFragment"
+            app:destination="@id/onboard_second_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboard_second_fragment"
+        android:name="com.open6.taleadventure.presentation.onboard.view.OnboardSecondFragment"
+        android:label="@string/onboard_second_fragment">
+        <action
+            android:id="@+id/action_onboardSecondFragment_to_onboardThirdFragment"
+            app:destination="@id/onboard_third_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboard_third_fragment"
+        android:name="com.open6.taleadventure.presentation.onboard.view.OnboardThirdFragment"
+        android:label="@string/onboard_third_fragment">
+        <action
+            android:id="@+id/action_onboardThirdFragment_to_onboardFourthFragment"
+            app:destination="@id/onboard_fourth_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/onboard_fourth_fragment"
+        android:name="com.open6.taleadventure.presentation.onboard.view.OnboardFourthFragment"
+        android:label="@string/onboard_fourth_fragment" />
+
+</navigation>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.open6.taleadventure.presentation.onboard.viewmodel.OnboardSecondViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.onboard.view.OnboardSecondFragment">
+
+        <ImageView
+            android:id="@+id/iv_onboard_second_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:contentDescription="@string/cd_back"
+            android:padding="9dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_onboard_second_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/onboard_second_title"
+            android:textAppearance="@style/B28"
+            app:layout_constraintTop_toBottomOf="@id/iv_onboard_second_back" />
+
+        <TextView
+            android:id="@+id/tv_onboard_second_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/onboard_second_desc"
+            android:textAppearance="@style/B19"
+            android:textColor="@color/grey_300_a6a7aa"
+            app:layout_constraintStart_toStartOf="@id/tv_onboard_second_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_onboard_second_title" />
+
+        <TextView
+            android:id="@+id/tv_onboard_second_genre_domestic"
+            style="@style/SelectButton"
+            android:layout_width="0dp"
+            android:layout_height="143dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{(view) -> vm.setSelectedView(view)}"
+            android:text="@string/tale_domestic"
+            app:layout_constraintBottom_toTopOf="@id/iv_onboard_second_bg"
+            app:layout_constraintEnd_toStartOf="@id/tv_onboard_second_genre_western"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_onboard_second_desc" />
+
+        <TextView
+            android:id="@+id/tv_onboard_second_genre_western"
+            style="@style/SelectButton"
+            android:layout_width="0dp"
+            android:layout_height="143dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="30dp"
+            android:onClick="@{(view) -> vm.setSelectedView(view)}"
+            android:text="@string/tale_western"
+            app:layout_constraintBottom_toTopOf="@id/iv_onboard_second_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_onboard_second_genre_domestic"
+            app:layout_constraintTop_toBottomOf="@id/tv_onboard_second_desc" />
+
+        <ImageView
+            android:id="@+id/iv_onboard_second_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/cd_onboard_second_bg"
+            android:src="@drawable/img_onboard_second_bg"
+            app:layout_constraintBottom_toTopOf="@id/iv_onboard_second_indicator" />
+
+        <ImageView
+            android:id="@+id/iv_onboard_second_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:contentDescription="@string/cd_onboard_second_indicator"
+            android:src="@drawable/ic_onboard_second_indicator"
+            app:layout_constraintBottom_toTopOf="@id/tv_onboard_second_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_onboard_second_next"
+            style="@style/LargeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="20dp"
+            android:enabled="@{vm.isSelectedViewExist()}"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

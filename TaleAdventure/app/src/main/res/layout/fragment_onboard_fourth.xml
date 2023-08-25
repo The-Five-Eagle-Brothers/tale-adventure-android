@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.open6.taleadventure.presentation.onboard.viewmodel.OnboardFourthViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.onboard.view.OnboardFourthFragment">
+
+        <ImageView
+            android:id="@+id/iv_onboard_fourth_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:contentDescription="@string/cd_back"
+            android:padding="9dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_onboard_fourth_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/onboard_fourth_title"
+            android:textAppearance="@style/B28"
+            app:layout_constraintTop_toBottomOf="@id/iv_onboard_fourth_back" />
+
+        <TextView
+            android:id="@+id/tv_onboard_fourth_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/onboard_fourth_desc"
+            android:textAppearance="@style/B19"
+            android:textColor="@color/grey_300_a6a7aa"
+            app:layout_constraintStart_toStartOf="@id/tv_onboard_fourth_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_onboard_fourth_title" />
+
+        <ImageView
+            android:id="@+id/iv_onboard_fourth_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/cd_back"
+            android:src="@drawable/img_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_onboard_fourth_desc" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_onboard_fourth_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="76dp"
+            android:layout_marginTop="37dp"
+            android:hint="@string/hint_nickname"
+            android:textColorHint="@color/grey_300_a6a7aa"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeColor="@color/purple_100_c8a5fa"
+            app:layout_constraintTop_toBottomOf="@id/iv_onboard_fourth_profile">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_onboard_fourth_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:maxLength="8"
+                android:maxLines="1"
+                android:text="@={vm.nickname}"
+                android:textAppearance="@style/B28" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/iv_onboard_fourth_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:contentDescription="@string/cd_onboard_fourth_indicator"
+            android:src="@drawable/ic_onboard_fourth_indicator"
+            app:layout_constraintBottom_toTopOf="@id/tv_onboard_fourth_complete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_onboard_fourth_complete"
+            style="@style/LargeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="20dp"
+            android:enabled="@{vm.isNickNameValid()}"
+            android:text="@string/complete"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
