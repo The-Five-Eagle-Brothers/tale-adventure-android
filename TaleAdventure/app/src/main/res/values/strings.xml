@@ -6,6 +6,9 @@
     <string name="cd_back">뒤로 가기 버튼</string>
     <string name="tale_domestic">국내 동화</string>
     <string name="tale_western">서양 동화</string>
+    <string name="korean">한국어</string>
+    <string name="english">영어</string>
+    <string name="japanese">일본어</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
@@ -23,8 +26,12 @@
     <string name="onboard_first_age_higher_9">9세 이상</string>
     <string name="cd_onboard_first_indicator">첫 번째 온보딩 페이지</string>
     <string name="cd_onboard_second_indicator">두 번째 온보딩 페이지</string>
+    <string name="cd_onboard_third_indicator">세 번째 온보딩 페이지</string>
+    <string name="cd_onboard_fourth_indicator">네 번째 온보딩 페이지</string>
     <string name="cd_onboard_second_bg">온보딩 두 번째 화면 배경</string>
+    <string name="cd_onboard_third_bg">온보딩 세 번째 화면 배경</string>
+    <string name="cd_onboard_fourth_bg">온보딩 네 번째 화면 배경</string>
     <string name="onboard_second_title">좋아하는 장르를\n골라주세요.</string>
     <string name="onboard_second_desc">중복선택 가능</string>
-
+    <string name="onboard_third_title">거의 끝났어요,\n희망하는 언어를\n선택해주세요.</string>
 </resources>
