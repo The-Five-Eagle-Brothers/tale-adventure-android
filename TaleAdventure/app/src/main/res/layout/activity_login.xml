@@ -14,6 +14,16 @@
         android:scaleType="centerCrop"
         android:src="@drawable/img_login_bg" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="110dp"
+        android:background="@android:color/transparent"
+        android:text="@string/login_title"
+        android:textAppearance="@style/B28"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/iv_login_kakao"
         android:layout_width="183dp"
