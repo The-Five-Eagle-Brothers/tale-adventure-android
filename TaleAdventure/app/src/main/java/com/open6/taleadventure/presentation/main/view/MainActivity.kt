@@ -1,7 +1,7 @@
-package com.open6.taleadventure.presentation.main
+package com.open6.taleadventure.presentation.main.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.open6.taleadventure.R
 
 class MainActivity : AppCompatActivity() {
