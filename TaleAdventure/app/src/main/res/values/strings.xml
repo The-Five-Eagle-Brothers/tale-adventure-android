@@ -3,6 +3,9 @@
     <string name="preference_file_name">%s.PREFERENCE_FILE</string>
     <!--Public-->
     <string name="next">다음</string>
+    <string name="cd_back">뒤로 가기 버튼</string>
+    <string name="tale_domestic">국내 동화</string>
+    <string name="tale_western">서양 동화</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
@@ -18,4 +21,10 @@
     <string name="onboard_first_age_3_to_5">3~5세</string>
     <string name="onboard_first_age_6_to_8">6~8세</string>
     <string name="onboard_first_age_higher_9">9세 이상</string>
+    <string name="cd_onboard_first_indicator">첫 번째 온보딩 페이지</string>
+    <string name="cd_onboard_second_indicator">두 번째 온보딩 페이지</string>
+    <string name="cd_onboard_second_bg">온보딩 두 번째 화면 배경</string>
+    <string name="onboard_second_title">좋아하는 장르를\n골라주세요.</string>
+    <string name="onboard_second_desc">중복선택 가능</string>
+
 </resources>
