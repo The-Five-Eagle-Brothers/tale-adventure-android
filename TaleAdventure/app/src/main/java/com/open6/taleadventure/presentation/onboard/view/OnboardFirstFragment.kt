@@ -33,6 +33,7 @@ class OnboardFirstFragment :
     private fun setNextTVClickEvent() {
         binding.tvOnboardFirstNext.setOnClickListener {
             findNavController().navigate(R.id.action_onboardFirstFragment_to_onboardSecondFragment)
+            viewModel.resetSelectedView()
         }
     }
 
