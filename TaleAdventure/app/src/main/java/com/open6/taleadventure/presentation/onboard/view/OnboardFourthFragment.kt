@@ -1,11 +1,13 @@
 package com.open6.taleadventure.presentation.onboard.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.FragmentOnboardFourthBinding
 import com.open6.taleadventure.presentation.base.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.main.MainActivity
 import com.open6.taleadventure.presentation.onboard.viewmodel.OnboardFourthViewModel
 
 class OnboardFourthFragment :
@@ -20,6 +22,18 @@ class OnboardFourthFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setClickEvents()
     }
 
+    fun setClickEvents() {
+        setCompleteTVClickEvent()
+    }
+
+    fun setCompleteTVClickEvent() {
+        binding.tvOnboardFourthComplete.setOnClickListener {
+            val activity = requireActivity()
+            startActivity(Intent(activity, MainActivity::class.java))
+            if (!activity.isFinishing) activity.finish()
+        }
+    }
 }
