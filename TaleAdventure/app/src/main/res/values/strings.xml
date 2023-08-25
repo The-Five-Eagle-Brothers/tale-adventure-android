@@ -9,6 +9,8 @@
     <string name="korean">한국어</string>
     <string name="english">영어</string>
     <string name="japanese">일본어</string>
+    <string name="profile">프로필</string>
+    <string name="complete">완료</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
@@ -17,7 +19,6 @@
     <string name="onboard_second_fragment">OnboardSecondFragment</string>
     <string name="onboard_third_fragment">OnboardThirdFragment</string>
     <string name="onboard_fourth_fragment">onboard_fourth_fragment</string>
-    <string name="onboard_fifth_fragment">OnboardFifthFragment</string>
     <string name="cd_onboard_first_bg">온보딩 첫 번째 화면 배경</string>
     <string name="onboard_first_title">환영합니다 :)\n아이의 나이대를\n골라주세요.</string>
     <string name="onboard_first_age_under_2">2세 이하</string>
@@ -30,8 +31,11 @@
     <string name="cd_onboard_fourth_indicator">네 번째 온보딩 페이지</string>
     <string name="cd_onboard_second_bg">온보딩 두 번째 화면 배경</string>
     <string name="cd_onboard_third_bg">온보딩 세 번째 화면 배경</string>
-    <string name="cd_onboard_fourth_bg">온보딩 네 번째 화면 배경</string>
     <string name="onboard_second_title">좋아하는 장르를\n골라주세요.</string>
     <string name="onboard_second_desc">중복선택 가능</string>
     <string name="onboard_third_title">거의 끝났어요,\n희망하는 언어를\n선택해주세요.</string>
+    <string name="onboard_fourth_title">아이의 닉네임을\n설정해주세요.</string>
+    <string name="onboard_fourth_desc">나중에 바꿀 수 있어요</string>
+    <string name="login_title">내 손 안의\n3D 동화책</string>
+    <string name="hint_nickname">2~8 글자로 설정해주세요</string>
 </resources>
