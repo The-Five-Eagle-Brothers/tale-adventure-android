@@ -10,7 +10,7 @@
 
     <style name="Theme.TaleAdventure" parent="Base.Theme.TaleAdventure" />
 
-    <style name="LButton" parent="Widget.AppCompat.TextView">
+    <style name="LargeButton" parent="Widget.AppCompat.TextView">
         <item name="android:textAppearance">@style/B28</item>
         <item name="android:background">@drawable/bg_selector_gray100_purple300_radius_63</item>
         <item name="android:textColor">@color/text_color_l_button</item>
