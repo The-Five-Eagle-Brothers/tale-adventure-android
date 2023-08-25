@@ -94,12 +94,12 @@
             android:layout_marginBottom="28dp"
             android:contentDescription="@string/cd_onboard_fourth_indicator"
             android:src="@drawable/ic_onboard_fourth_indicator"
-            app:layout_constraintBottom_toTopOf="@id/tv_onboard_fourth_next"
+            app:layout_constraintBottom_toTopOf="@id/tv_onboard_fourth_complete"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tv_onboard_fourth_next"
+            android:id="@+id/tv_onboard_fourth_complete"
             style="@style/LargeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
