@@ -57,6 +57,7 @@
             android:layout_height="143dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="8dp"
+            android:onClick="@{(view) -> vm.setSelectedView(view)}"
             android:text="@string/tale_domestic"
             app:layout_constraintBottom_toTopOf="@id/iv_onboard_second_bg"
             app:layout_constraintEnd_toStartOf="@id/tv_onboard_second_genre_western"
@@ -70,6 +71,7 @@
             android:layout_height="143dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="30dp"
+            android:onClick="@{(view) -> vm.setSelectedView(view)}"
             android:text="@string/tale_western"
             app:layout_constraintBottom_toTopOf="@id/iv_onboard_second_bg"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="20dp"
-            android:enabled="false"
+            android:enabled="@{vm.isSelectedViewExist()}"
             android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent" />
 
