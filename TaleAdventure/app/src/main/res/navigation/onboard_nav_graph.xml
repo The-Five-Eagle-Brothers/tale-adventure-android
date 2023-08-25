@@ -34,15 +34,6 @@
     <fragment
         android:id="@+id/onboard_fourth_fragment"
         android:name="com.open6.taleadventure.presentation.onboard.view.OnboardFourthFragment"
-        android:label="@string/onboard_fourth_fragment">
-        <action
-            android:id="@+id/action_onboardFourthFragment_to_onboardFifthFragment"
-            app:destination="@id/onboard_fifth_fragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/onboard_fifth_fragment"
-        android:name="com.open6.taleadventure.presentation.onboard.view.OnboardFifthFragment"
-        android:label="@string/onboard_fifth_fragment" />
+        android:label="@string/onboard_fourth_fragment" />
 
 </navigation>
