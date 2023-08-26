@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,10 +10,124 @@
             type="com.open6.taleadventure.presentation.home.viewmodel.HomeViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.home.view.HomeFragment">
+        android:layout_height="wrap_content"
+        android:background="@color/purple_bg_fbf8ff">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".presentation.home.view.HomeFragment">
+
+            <TextView
+                android:id="@+id/tv_home_adventure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/transparent"
+                android:text="@string/daily_adventure"
+                android:textAppearance="@style/B24"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_home_adventure"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/img_home_adventure_bg"
+                app:layout_constraintDimensionRatio="380:327"
+                app:layout_constraintTop_toBottomOf="@id/tv_home_adventure">
+
+                <TextView
+                    android:id="@+id/tv_home_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="23dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/home_nice_to_meet_you"
+                    android:textAppearance="@style/R16"
+                    android:textColor="@color/grey_400_8a8a8e"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_home_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:background="@android:color/transparent"
+                    android:textAppearance="@style/B19"
+                    android:textColor="@color/grey_400_8a8a8e"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_home_desc"
+                    app:layout_constraintStart_toEndOf="@id/tv_home_desc"
+                    app:layout_constraintTop_toTopOf="@id/tv_home_desc"
+                    tools:text="잰조" />
+
+                <TextView
+                    android:id="@+id/tv_home_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:background="@android:color/transparent"
+                    android:textAppearance="@style/Eb44"
+                    app:layout_constraintStart_toStartOf="@id/tv_home_desc"
+                    app:layout_constraintTop_toBottomOf="@id/tv_home_desc"
+                    tools:text="Day 32" />
+
+                <TextView
+                    android:id="@+id/tv_home_game_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/home_fun_word_game"
+                    android:textAppearance="@style/B19"
+                    android:textColor="@color/purple_400_7141b3"
+                    app:layout_constraintStart_toStartOf="@id/tv_home_day"
+                    app:layout_constraintTop_toBottomOf="@id/tv_home_day" />
+
+                <TextView
+                    android:id="@+id/tv_home_game_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_purple_300_radius_63"
+                    android:paddingHorizontal="24dp"
+                    android:paddingVertical="10dp"
+                    android:text="@string/play"
+                    android:textAppearance="@style/Eb19"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@id/tv_home_game_desc"
+                    app:layout_constraintTop_toBottomOf="@id/tv_home_game_desc" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_home_library"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="36dp"
+                android:background="@android:color/transparent"
+                android:text="@string/library"
+                android:textAppearance="@style/B24"
+                app:layout_constraintTop_toBottomOf="@id/layout_home_adventure" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_home_library"
+                tools:listitem="@layout/item_library" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
