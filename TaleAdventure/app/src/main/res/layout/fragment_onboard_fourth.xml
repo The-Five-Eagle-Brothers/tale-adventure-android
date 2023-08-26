@@ -82,6 +82,7 @@
                 android:gravity="center"
                 android:maxLength="8"
                 android:maxLines="1"
+                android:inputType="text"
                 android:text="@={vm.nickname}"
                 android:textAppearance="@style/B28" />
 
