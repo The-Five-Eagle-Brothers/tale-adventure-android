@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.open6.taleadventure.presentation.home.view.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="com.open6.taleadventure.presentation.mypage.view.MyPageFragment"
+        android:label="MyPageFragment" />
+    <fragment
+        android:id="@+id/wordFragment"
+        android:name="com.open6.taleadventure.presentation.word.view.WordFragment"
+        android:label="WordFragment" />
+</navigation>

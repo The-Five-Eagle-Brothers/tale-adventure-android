@@ -11,6 +11,9 @@
     <string name="japanese">일본어</string>
     <string name="profile">프로필</string>
     <string name="complete">완료</string>
+    <string name="home">홈</string>
+    <string name="word">나만의 단어장</string>
+    <string name="my_page">마이 페이지</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>

@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.FragmentOnboardFourthBinding
 import com.open6.taleadventure.presentation.base.BaseDataBindingFragment
-import com.open6.taleadventure.presentation.main.MainActivity
+import com.open6.taleadventure.presentation.main.view.MainActivity
 import com.open6.taleadventure.presentation.onboard.viewmodel.OnboardFourthViewModel
 
 class OnboardFourthFragment :
