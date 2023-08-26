@@ -6,4 +6,7 @@
     <font
         android:font="@font/nanum_square_round_bold"
         android:fontWeight="700" />
+    <font
+        android:font="@font/nanum_square_round_extra_bold"
+        android:fontWeight="800" />
 </font-family>
