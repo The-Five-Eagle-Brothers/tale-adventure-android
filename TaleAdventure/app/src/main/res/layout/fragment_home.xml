@@ -12,12 +12,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/purple_bg_fbf8ff">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/purple_bg_fbf8ff"
             tools:context=".presentation.home.view.HomeFragment">
 
             <TextView
