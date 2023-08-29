@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:contentDescription="@string/cd_back"
+            android:contentDescription="@string/cd_profile"
             android:src="@drawable/img_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -80,9 +80,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:inputType="text"
                 android:maxLength="8"
                 android:maxLines="1"
-                android:inputType="text"
                 android:text="@={vm.nickname}"
                 android:textAppearance="@style/B28" />
 

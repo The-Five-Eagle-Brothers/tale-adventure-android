@@ -16,6 +16,11 @@
     <string name="my_page">마이 페이지</string>
     <string name="daily_adventure">데일리 어드벤쳐</string>
     <string name="play">PLAY!</string>
+    <string name="logout">로그아웃</string>
+    <string name="notice">공지사항</string>
+    <string name="help">도움말</string>
+    <string name="contact">고객센터 문의</string>
+    <string name="oss_license">오픈소스 고지</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
@@ -43,8 +48,17 @@
     <string name="onboard_fourth_desc">나중에 바꿀 수 있어요</string>
     <string name="login_title">내 손 안의\n3D 동화책</string>
     <string name="hint_nickname">2~8 글자로 설정해주세요</string>
+    <!--Home-->
     <string name="cd_home_daily_adventure_bg">데일리 어드벤쳐 배경</string>
     <string name="library">라이브러리</string>
     <string name="home_nice_to_meet_you">만나서 반가워요,</string>
     <string name="home_fun_word_game">재밌는 낱말게임</string>
+    <!--My Page-->
+    <string name="cd_profile">프로필 사진</string>
+    <string name="cd_profile_edit">프로필 편집</string>
+    <string name="my_page_notification_setting">푸시알림 설정</string>
+    <string name="my_page_language_setting">콘텐츠 언어 설정</string>
+    <string name="my_page_social_type_kakao">소셜 연동: 카카오톡</string>
+    <string name="my_page_nickname">%s 님</string>
+    <string name="my_page_user_info_error">사용자 정보 요청 실패 : %s</string>
 </resources>
