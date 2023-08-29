@@ -58,4 +58,7 @@
     <string name="cd_profile_edit">프로필 편집</string>
     <string name="my_page_notification_setting">푸시알림 설정</string>
     <string name="my_page_language_setting">콘텐츠 언어 설정</string>
+    <string name="my_page_social_type_kakao">소셜 연동: 카카오톡</string>
+    <string name="my_page_nickname">%s 님</string>
+    <string name="my_page_user_info_error">사용자 정보 요청 실패 : %s</string>
 </resources>
