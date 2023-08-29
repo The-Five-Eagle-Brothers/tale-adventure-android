@@ -80,6 +80,7 @@
                 tools:text="janecho100@gmail.com" />
 
             <TextView
+                android:id="@+id/tv_my_page_social"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -128,7 +129,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/tv_my_page_notification"
                     app:thumbTint="@color/white"
-                    app:trackTint="@color/purple_300_8e59d7" />
+                    app:trackTint="@color/switch_track_tint" />
 
                 <TextView
                     android:id="@+id/tv_my_page_language"
