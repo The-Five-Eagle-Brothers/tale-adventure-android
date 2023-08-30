@@ -21,6 +21,8 @@
     <string name="help">도움말</string>
     <string name="contact">고객센터 문의</string>
     <string name="oss_license">오픈소스 고지</string>
+    <string name="chapter">챕터</string>
+    <string name="cd_tale">동화책 표지</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
@@ -61,4 +63,5 @@
     <string name="my_page_social_type_kakao">소셜 연동: 카카오톡</string>
     <string name="my_page_nickname">%s 님</string>
     <string name="my_page_user_info_error">사용자 정보 요청 실패 : %s</string>
+    <!--Tale-->
 </resources>
