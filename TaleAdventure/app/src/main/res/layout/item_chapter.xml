@@ -64,6 +64,7 @@
             tools:src="@drawable/img_chapter_example" />
 
         <TextView
+            android:id="@+id/tv_chapter_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
