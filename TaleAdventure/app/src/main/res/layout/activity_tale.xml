@@ -30,7 +30,7 @@
         tools:text="어린왕자" />
 
     <ImageView
-        android:id="@+id/iv_tale"
+        android:id="@+id/iv_tale_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -47,7 +47,7 @@
         android:elevation="21dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_tale">
+        app:layout_constraintTop_toBottomOf="@id/iv_tale_image">
 
         <TextView
             android:id="@+id/tv_tale_chapter"

@@ -11,6 +11,15 @@ class TaleActivity : BaseViewBindingActivity<ActivityTaleBinding>() {
         super.onCreate(savedInstanceState)
 
         setViews()
+        setClickEvents()
+    }
+
+    private fun setClickEvents() {
+        setBackIVClickEvent()
+    }
+
+    private fun setBackIVClickEvent() {
+        binding.ivTaleBack.setOnClickListener { if (!isFinishing) finish() }
     }
 
     private fun setViews() {
