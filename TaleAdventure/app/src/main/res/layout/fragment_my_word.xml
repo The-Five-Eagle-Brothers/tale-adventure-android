@@ -7,13 +7,13 @@
 
         <variable
             name="vm"
-            type="com.open6.taleadventure.presentation.word.viewmodel.WordViewModel" />
+            type="com.open6.taleadventure.presentation.word.viewmodel.MyWordViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.word.view.WordFragment">
+        tools:context=".presentation.word.view.MyWordFragment">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

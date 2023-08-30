@@ -6,7 +6,7 @@
         android:title="@string/home" />
     <item
         android:id="@+id/wordFragment"
-        android:icon="@drawable/ic_word"
+        android:icon="@drawable/ic_my_word"
         android:title="@string/word" />
     <item
         android:id="@+id/myPageFragment"
