@@ -11,6 +11,11 @@
         <item name="android:textSize">33sp</item>
     </style>
 
+    <style name="Eb28">
+        <item name="android:fontFamily">@font/nanum_square_round_extra_bold</item>
+        <item name="android:textSize">28sp</item>
+    </style>
+
     <style name="B28">
         <item name="android:fontFamily">@font/nanum_square_round_bold</item>
         <item name="android:textSize">28sp</item>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="154dp"
+    android:background="@color/purple_bg_fbf8ff">
+
+    <View
+        android:id="@+id/view_chapter_top_bar"
+        android:layout_width="8dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="40dp"
+        android:backgroundTint="@color/purple_0_f2e9ff"
+        app:layout_constraintBottom_toTopOf="@id/view_chapter_bottom_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_chapter_bottom_bar"
+        android:layout_width="8dp"
+        android:layout_height="77dp"
+        android:backgroundTint="@color/purple_0_f2e9ff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/view_chapter_top_bar"
+        app:layout_constraintStart_toStartOf="@id/view_chapter_top_bar"
+        app:layout_constraintTop_toBottomOf="@id/view_chapter_top_bar" />
+
+    <TextView
+        android:id="@+id/tv_chapter_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_radius_40"
+        android:elevation="16dp"
+        android:gravity="center"
+        android:maxLength="1"
+        android:padding="12dp"
+        android:textAppearance="@style/B24"
+        app:layout_constraintBottom_toTopOf="@id/view_chapter_bottom_bar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/view_chapter_top_bar"
+        app:layout_constraintStart_toStartOf="@id/view_chapter_top_bar"
+        app:layout_constraintTop_toBottomOf="@id/view_chapter_top_bar"
+        tools:text="1" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="21dp"
+        android:background="@drawable/bg_white_radius_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_chapter_number"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginStart="20dp">
+
+        <ImageView
+            android:id="@+id/iv_chapter"
+            android:contentDescription="@string/cd_tale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            tools:src="@drawable/img_chapter_example" />
+
+        <TextView
+            android:id="@+id/tv_chapter_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingVertical="16dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="37dp"
+            android:textAppearance="@style/B19"
+            android:textColor="@color/grey_800_1b1b1c"
+            tools:text="어린왕자의 등장" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
