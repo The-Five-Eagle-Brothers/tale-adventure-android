@@ -6,4 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".presentation.tale.view.TaleActivity">
 
+    <ImageView
+        android:id="@+id/iv_tale_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:contentDescription="@string/cd_back"
+        android:padding="9dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@id/tv_tale_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_tale_title" />
+
+    <TextView
+        android:id="@+id/tv_tale_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:textAppearance="@style/B28"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="어린왕자" />
+
+    <ImageView
+        android:id="@+id/iv_tale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:contentDescription="@string/cd_tale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_tale_title"
+        tools:src="@drawable/img_tale_example" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_purple_bg_top_radius_24"
+        android:elevation="21dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_tale">
+
+        <TextView
+            android:id="@+id/tv_tale_chapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="@android:color/transparent"
+            android:text="@string/chapter"
+            android:textAppearance="@style/B19" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_tale_chapter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_chapter" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
