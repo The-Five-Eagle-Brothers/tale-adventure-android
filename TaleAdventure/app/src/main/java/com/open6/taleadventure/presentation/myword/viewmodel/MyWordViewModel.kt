@@ -1,4 +1,4 @@
-package com.open6.taleadventure.presentation.word.viewmodel
+package com.open6.taleadventure.presentation.myword.viewmodel
 
 import androidx.lifecycle.ViewModel
 

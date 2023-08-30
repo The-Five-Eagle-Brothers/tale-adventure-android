@@ -14,6 +14,6 @@
         android:label="MyPageFragment" />
     <fragment
         android:id="@+id/wordFragment"
-        android:name="com.open6.taleadventure.presentation.word.view.MyWordFragment"
+        android:name="com.open6.taleadventure.presentation.myword.view.MyWordFragment"
         android:label="WordFragment" />
 </navigation>
