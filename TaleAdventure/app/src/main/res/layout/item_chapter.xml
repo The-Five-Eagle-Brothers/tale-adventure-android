@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="154dp"
+    android:layout_height="wrap_content"
     android:background="@color/purple_bg_fbf8ff">
 
     <View
@@ -12,7 +12,6 @@
         android:layout_height="77dp"
         android:layout_marginStart="40dp"
         android:backgroundTint="@color/purple_0_f2e9ff"
-        app:layout_constraintBottom_toTopOf="@id/view_chapter_bottom_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +20,6 @@
         android:layout_width="8dp"
         android:layout_height="77dp"
         android:backgroundTint="@color/purple_0_f2e9ff"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/view_chapter_top_bar"
         app:layout_constraintStart_toStartOf="@id/view_chapter_top_bar"
         app:layout_constraintTop_toBottomOf="@id/view_chapter_top_bar" />
@@ -32,15 +30,17 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_white_radius_40"
         android:elevation="16dp"
+        android:fontFamily="@font/nanum_square_round_bold"
         android:gravity="center"
         android:maxLength="1"
         android:padding="12dp"
-        android:textAppearance="@style/B24"
+        android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@id/view_chapter_bottom_bar"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="@id/view_chapter_top_bar"
         app:layout_constraintStart_toStartOf="@id/view_chapter_top_bar"
         app:layout_constraintTop_toBottomOf="@id/view_chapter_top_bar"
+        tools:ignore="SpUsage"
         tools:text="1" />
 
     <LinearLayout
@@ -57,10 +57,10 @@
 
         <ImageView
             android:id="@+id/iv_chapter"
-            android:contentDescription="@string/cd_tale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/cd_tale"
             tools:src="@drawable/img_chapter_example" />
 
         <TextView

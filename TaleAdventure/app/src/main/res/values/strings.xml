@@ -64,4 +64,6 @@
     <string name="my_page_nickname">%s 님</string>
     <string name="my_page_user_info_error">사용자 정보 요청 실패 : %s</string>
     <!--Tale-->
+    <!--My Word-->
+    <string name="my_word_title">나만의 단어장</string>
 </resources>
