@@ -7,13 +7,43 @@
 
         <variable
             name="vm"
-            type="com.open6.taleadventure.presentation.word.viewmodel.MyWordViewModel" />
+            type="com.open6.taleadventure.presentation.myword.viewmodel.MyWordViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.word.view.MyWordFragment">
+        android:backgroundTint="@color/purple_bg_fbf8ff"
+        tools:context=".presentation.myword.view.MyWordFragment">
+
+        <TextView
+            android:id="@+id/tv_my_word_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@android:color/transparent"
+            android:drawablePadding="5dp"
+            android:text="@string/my_word_title"
+            android:textAppearance="@style/Eb28"
+            android:textColor="@color/purple_400_7141b3"
+            app:drawableEndCompat="@drawable/img_bookmark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_word_story"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="47dp"
+            android:backgroundTint="@android:color/transparent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_my_word_title"
+            app:spanCount="2"
+            tools:listitem="@layout/item_story" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
