@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -12,7 +13,148 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
         tools:context=".presentation.wordgame.view.WordGameActivity">
+
+        <ImageView
+            android:id="@+id/iv_word_game_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="@string/cd_word_game_backgronud"
+            android:src="@drawable/img_word_game_example"
+            app:layout_constraintBottom_toTopOf="@id/tv_word_game_prefix"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <TextView
+            android:id="@+id/tv_word_game_prefix"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="38dp"
+            android:layout_marginBottom="24dp"
+            android:ellipsize="middle"
+            android:gravity="center|bottom"
+            android:textAppearance="@style/B28"
+            app:layout_constraintBottom_toTopOf="@id/iv_word_game_first_blank_char"
+            app:layout_constraintTop_toBottomOf="@id/iv_word_game_image"
+            tools:text="장미는 어린왕자에게 짓굳게 한 것을" />
+
+        <ImageView
+            android:id="@+id/iv_word_game_first_blank_char"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/cd_blank_space"
+            android:src="@drawable/img_char_blank"
+            app:layout_constraintBottom_toTopOf="@id/tv_word_game_suffix"
+            app:layout_constraintEnd_toStartOf="@id/iv_word_game_second_blank_char"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_word_game_second_blank_char"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/cd_blank_space"
+            android:src="@drawable/img_char_blank"
+            app:layout_constraintBottom_toTopOf="@id/tv_word_game_suffix"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_word_game_first_blank_char" />
+
+        <TextView
+            android:id="@+id/tv_word_game_suffix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="38dp"
+            android:layout_marginBottom="32dp"
+            android:ellipsize="middle"
+            android:gravity="center"
+            android:textAppearance="@style/B28"
+            app:layout_constraintBottom_toTopOf="@id/layout_word_game_char"
+            tools:text="했어요" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_word_game_char"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_purple_bg_top_radius_24"
+            android:elevation="250dp"
+            android:paddingHorizontal="36dp"
+            android:paddingTop="43dp"
+            android:paddingBottom="62dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tv_word_game_first_char"
+                android:layout_width="70dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/nanum_square_round_extra_bold"
+                android:gravity="center"
+                android:textColor="@color/purple_400_7141b3"
+                android:textSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/tv_word_game_second_char"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpUsage"
+                tools:text="회" />
+
+            <TextView
+                android:id="@+id/tv_word_game_second_char"
+                android:layout_width="70dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/nanum_square_round_extra_bold"
+                android:gravity="center"
+                android:textColor="@color/purple_400_7141b3"
+                android:textSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/tv_word_game_third_char"
+                app:layout_constraintStart_toEndOf="@id/tv_word_game_first_char"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpUsage"
+                tools:text="회" />
+
+            <TextView
+                android:id="@+id/tv_word_game_third_char"
+                android:layout_width="70dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/nanum_square_round_extra_bold"
+                android:gravity="center"
+                android:textColor="@color/purple_400_7141b3"
+                android:textSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/tv_word_game_fourth_char"
+                app:layout_constraintStart_toEndOf="@id/tv_word_game_second_char"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpUsage"
+                tools:text="회" />
+
+            <TextView
+                android:id="@+id/tv_word_game_fourth_char"
+                android:layout_width="70dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/nanum_square_round_extra_bold"
+                android:gravity="center"
+                android:textColor="@color/purple_400_7141b3"
+                android:textSize="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_word_game_third_char"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpUsage"
+                tools:text="회" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
