@@ -66,4 +66,5 @@
     <!--Tale-->
     <!--My Word-->
     <string name="my_word_title">나만의 단어장</string>
+    <string name="cd_blank_space">빈 칸</string>
 </resources>
