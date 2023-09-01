@@ -14,7 +14,17 @@ class WordGameActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setClickEvents()
+    }
 
+    private fun setClickEvents() {
+        setBackIVClickEvent()
+    }
+
+    private fun setBackIVClickEvent() {
+        binding.ivWordGameBack.setOnClickListener {
+            if (!isFinishing) finish()
+        }
     }
 
     override fun bindViewModelWithBinding() {
