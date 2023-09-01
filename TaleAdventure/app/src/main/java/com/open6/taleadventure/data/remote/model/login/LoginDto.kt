@@ -1,6 +1,5 @@
 package com.open6.taleadventure.data.remote.model.login
 
-import com.open6.taleadventure.data.remote.model.wrapper.ResponseWrapper
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -11,10 +10,5 @@ data class RequestLoginDto(
 
 @Serializable
 data class ResponseLoginDto(
-    @SerialName("data") val data: ResponseWrapper<AppToken>,
-) {
-    @Serializable
-    data class AppToken(
-        @SerialName("appToken") val appToken: String,
-    )
-}
+    @SerialName("appToken") val appToken: String,
+)
