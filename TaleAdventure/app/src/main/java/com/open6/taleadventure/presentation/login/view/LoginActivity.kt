@@ -8,6 +8,7 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import com.open6.taleadventure.R
 import com.open6.taleadventure.data.local.TaleAdventureSharedPreferences
 import com.open6.taleadventure.databinding.ActivityLoginBinding
 import com.open6.taleadventure.presentation.base.BaseViewBindingActivity
@@ -85,7 +86,11 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
                     Timber.e("카카오계정으로 로그인 실패 : $error")
                 } else if (token != null) {
                     Timber.e("카카오계정으로 로그인 성공 : ${token.accessToken}")
-                    viewModel.loginWithKakao(token.accessToken)
+                    viewModel.loginWithKakao(
+                        getString(
+                            R.string.kakao_token_wrapper, token.accessToken
+                        )
+                    )
                 }
             }
 
@@ -105,6 +110,7 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
                         UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
                     } else if (token != null) {
                         Timber.i("카카오톡으로 로그인 성공 ${token.accessToken}")
+                        callback.invoke(token, null)
                     }
                 }
             } else {
