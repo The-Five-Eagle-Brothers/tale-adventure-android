@@ -13,7 +13,7 @@
         android:layout_marginStart="24dp"
         android:contentDescription="@string/cd_back"
         android:padding="9dp"
-        android:src="@drawable/ic_back"
+        android:src="@drawable/ic_back_purple"
         app:layout_constraintBottom_toBottomOf="@id/tv_tale_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_tale_title" />

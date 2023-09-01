@@ -66,4 +66,6 @@
     <!--Tale-->
     <!--My Word-->
     <string name="my_word_title">나만의 단어장</string>
+    <string name="cd_blank_space">빈 칸</string>
+    <string name="cd_word_game_backgronud">단어가 등장한 장면</string>
 </resources>
