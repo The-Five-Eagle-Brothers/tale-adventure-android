@@ -1,8 +1,8 @@
 package com.open6.taleadventure.data.remote.interceptor
 
 import com.open6.taleadventure.data.local.TaleAdventureSharedPreferences
-import com.open6.taleadventure.data.remote.DataPublicString.ACCESS_TOKEN
-import com.open6.taleadventure.data.remote.DataPublicString.AUTHORIZATION
+import com.open6.taleadventure.util.PublicString.ACCESS_TOKEN
+import com.open6.taleadventure.util.PublicString.AUTHORIZATION
 import okhttp3.Interceptor
 import okhttp3.Response
 
