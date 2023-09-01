@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/white"
+        android:clipToPadding="false"
         tools:context=".presentation.wordgame.view.WordGameActivity">
 
         <ImageView
@@ -29,6 +30,19 @@
             app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <TextView
+            android:id="@+id/tv_word_game_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@android:color/transparent"
+            android:textAppearance="@style/B24"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/iv_word_game_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="1/5" />
+
+        <TextView
             android:id="@+id/tv_word_game_prefix"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -41,29 +55,45 @@
             app:layout_constraintTop_toBottomOf="@id/iv_word_game_image"
             tools:text="장미는 어린왕자에게 짓굳게 한 것을" />
 
-        <ImageView
+        <TextView
             android:id="@+id/iv_word_game_first_blank_char"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="4dp"
             android:layout_marginBottom="24dp"
+            android:background="@drawable/img_char_blank"
             android:contentDescription="@string/cd_blank_space"
-            android:src="@drawable/img_char_blank"
+            android:gravity="center"
+            android:maxLength="1"
+            android:padding="8dp"
+            android:textAppearance="@style/Eb46"
+            android:textColor="@color/purple_400_7141b3"
             app:layout_constraintBottom_toTopOf="@id/tv_word_game_suffix"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@id/iv_word_game_second_blank_char"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="후" />
 
-        <ImageView
+        <TextView
             android:id="@+id/iv_word_game_second_blank_char"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_marginBottom="24dp"
+            android:background="@drawable/img_char_blank"
             android:contentDescription="@string/cd_blank_space"
-            android:src="@drawable/img_char_blank"
+            android:gravity="center"
+            android:maxLength="1"
+            android:padding="8dp"
+            android:textAppearance="@style/Eb46"
+            android:textColor="@color/purple_400_7141b3"
             app:layout_constraintBottom_toTopOf="@id/tv_word_game_suffix"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_word_game_first_blank_char" />
+            app:layout_constraintStart_toEndOf="@id/iv_word_game_first_blank_char"
+            tools:text="회" />
+
 
         <TextView
             android:id="@+id/tv_word_game_suffix"
@@ -81,77 +111,130 @@
             android:id="@+id/layout_word_game_char"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:background="@drawable/bg_purple_bg_top_radius_24"
-            android:elevation="250dp"
-            android:paddingHorizontal="36dp"
+            android:clipToPadding="false"
+            android:elevation="6dp"
             android:paddingTop="43dp"
             android:paddingBottom="62dp"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_goneMarginTop="20dp">
 
-            <TextView
-                android:id="@+id/tv_word_game_first_char"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_word_game_first_char"
                 android:layout_width="70dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/nanum_square_round_extra_bold"
-                android:gravity="center"
-                android:textColor="@color/purple_400_7141b3"
-                android:textSize="40dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/purple_0_f2e9ff"
+                app:cardElevation="6dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toStartOf="@id/tv_word_game_second_char"
+                app:layout_constraintEnd_toStartOf="@id/cv_word_game_second_char"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpUsage"
-                tools:text="회" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tv_word_game_second_char"
+                <TextView
+                    android:id="@+id/tv_word_game_first_char"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/purple_0_f2e9ff"
+                    android:elevation="16dp"
+                    android:fontFamily="@font/nanum_square_round_extra_bold"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="@color/purple_400_7141b3"
+                    android:textSize="40dp"
+                    tools:ignore="SpUsage"
+                    tools:text="회" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_word_game_second_char"
                 android:layout_width="70dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/nanum_square_round_extra_bold"
-                android:gravity="center"
-                android:textColor="@color/purple_400_7141b3"
-                android:textSize="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:backgroundTint="@color/purple_0_f2e9ff"
+                app:cardElevation="6dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toStartOf="@id/tv_word_game_third_char"
-                app:layout_constraintStart_toEndOf="@id/tv_word_game_first_char"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpUsage"
-                tools:text="회" />
+                app:layout_constraintEnd_toStartOf="@id/cv_word_game_third_char"
+                app:layout_constraintStart_toEndOf="@id/cv_word_game_first_char"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tv_word_game_third_char"
+                <TextView
+                    android:id="@+id/tv_word_game_second_char"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/purple_0_f2e9ff"
+                    android:elevation="16dp"
+                    android:fontFamily="@font/nanum_square_round_extra_bold"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="@color/purple_400_7141b3"
+                    android:textSize="40dp"
+                    tools:ignore="SpUsage"
+                    tools:text="회" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_word_game_third_char"
                 android:layout_width="70dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/nanum_square_round_extra_bold"
-                android:gravity="center"
-                android:textColor="@color/purple_400_7141b3"
-                android:textSize="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:backgroundTint="@color/purple_0_f2e9ff"
+                app:cardElevation="6dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintEnd_toStartOf="@id/tv_word_game_fourth_char"
-                app:layout_constraintStart_toEndOf="@id/tv_word_game_second_char"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpUsage"
-                tools:text="회" />
+                app:layout_constraintEnd_toStartOf="@id/cv_word_game_fourth_char"
+                app:layout_constraintStart_toEndOf="@id/cv_word_game_second_char"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tv_word_game_fourth_char"
+                <TextView
+                    android:id="@+id/tv_word_game_third_char"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/purple_0_f2e9ff"
+                    android:elevation="16dp"
+                    android:fontFamily="@font/nanum_square_round_extra_bold"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="@color/purple_400_7141b3"
+                    android:textSize="40dp"
+                    tools:ignore="SpUsage"
+                    tools:text="회" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_word_game_fourth_char"
                 android:layout_width="70dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/nanum_square_round_extra_bold"
-                android:gravity="center"
-                android:textColor="@color/purple_400_7141b3"
-                android:textSize="40dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/purple_0_f2e9ff"
+                app:cardElevation="6dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tv_word_game_third_char"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpUsage"
-                tools:text="회" />
+                app:layout_constraintStart_toEndOf="@id/cv_word_game_third_char"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_word_game_fourth_char"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/purple_0_f2e9ff"
+                    android:elevation="16dp"
+                    android:fontFamily="@font/nanum_square_round_extra_bold"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:textColor="@color/purple_400_7141b3"
+                    android:textSize="40dp"
+                    tools:ignore="SpUsage"
+                    tools:text="회" />
+            </androidx.cardview.widget.CardView>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
