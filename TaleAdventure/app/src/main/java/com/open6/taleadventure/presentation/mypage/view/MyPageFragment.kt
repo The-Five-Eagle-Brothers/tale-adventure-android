@@ -8,7 +8,7 @@ import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.kakao.sdk.user.UserApiClient
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.FragmentMyPageBinding
-import com.open6.taleadventure.presentation.base.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
 import com.open6.taleadventure.presentation.mypage.viewmodel.MyPageViewModel
 import timber.log.Timber
 

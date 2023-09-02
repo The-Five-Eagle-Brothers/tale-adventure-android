@@ -1,4 +1,4 @@
-package com.open6.taleadventure.presentation.base
+package com.open6.taleadventure.presentation.base.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater

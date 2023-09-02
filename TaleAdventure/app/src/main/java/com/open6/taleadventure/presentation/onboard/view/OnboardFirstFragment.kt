@@ -6,7 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.FragmentOnboardFirstBinding
-import com.open6.taleadventure.presentation.base.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
 import com.open6.taleadventure.presentation.onboard.viewmodel.OnboardFirstViewModel
 import com.open6.taleadventure.util.builder.StringIntMapBuilder
 import com.open6.taleadventure.util.extensions.makeToastMessage

@@ -11,7 +11,7 @@ import com.kakao.sdk.user.UserApiClient
 import com.open6.taleadventure.R
 import com.open6.taleadventure.data.local.TaleAdventureSharedPreferences
 import com.open6.taleadventure.databinding.ActivityLoginBinding
-import com.open6.taleadventure.presentation.base.BaseViewBindingActivity
+import com.open6.taleadventure.presentation.base.activity.BaseViewBindingActivity
 import com.open6.taleadventure.presentation.login.viewmodel.LoginViewModel
 import com.open6.taleadventure.presentation.main.view.MainActivity
 import com.open6.taleadventure.presentation.onboard.view.OnboardActivity

@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import com.open6.taleadventure.R
 import com.open6.taleadventure.data.local.TaleAdventureSharedPreferences
 import com.open6.taleadventure.databinding.FragmentOnboardFourthBinding
-import com.open6.taleadventure.presentation.base.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
 import com.open6.taleadventure.presentation.main.view.MainActivity
 import com.open6.taleadventure.presentation.onboard.viewmodel.OnboardFourthViewModel
 import com.open6.taleadventure.util.PublicString.DID_USER_WATCHED_ONBOARD

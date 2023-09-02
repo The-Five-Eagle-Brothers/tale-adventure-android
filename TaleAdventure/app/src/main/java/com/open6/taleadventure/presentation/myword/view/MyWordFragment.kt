@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.FragmentMyWordBinding
-import com.open6.taleadventure.presentation.base.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
 import com.open6.taleadventure.presentation.myword.adapter.StoryAdapter
 import com.open6.taleadventure.presentation.myword.viewmodel.MyWordViewModel
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.ActivityEndBinding
-import com.open6.taleadventure.presentation.base.BaseDataBindingActivity
+import com.open6.taleadventure.presentation.base.activity.BaseDataBindingActivity
 import com.open6.taleadventure.presentation.end.adapter.WordsAdapter
 import com.open6.taleadventure.presentation.end.viewmodel.EndViewModel
 
