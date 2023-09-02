@@ -27,7 +27,7 @@
             android:text="@string/my_word_title"
             android:textAppearance="@style/Eb28"
             android:textColor="@color/purple_400_7141b3"
-            app:drawableEndCompat="@drawable/img_bookmark"
+            app:drawableEndCompat="@drawable/img_bookmark_word"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
