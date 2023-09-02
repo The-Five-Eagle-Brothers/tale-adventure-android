@@ -25,8 +25,8 @@ class LoginViewModel : ViewModel() {
                 loginService.loginWithKakao(RequestLoginDto(accessToken))
             }.fold(onSuccess = { successResponse ->
                 _loginWithKakaoSuccessResponse.value = successResponse?.data
-            }, onFailure = { errorResponse ->
-                _loginWithKakaoErrorResponse.value = errorResponse.getErrorMessage()
+            }, onFailure = { error ->
+                _loginWithKakaoErrorResponse.value = error.getErrorMessage()
             })
         }
     }
