@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RequestLoginDto(
-    @SerialName("token") val token: String,
+    @SerialName("accessToken") val accessToken: String,
 )
 
 @Serializable
 data class ResponseLoginDto(
-    @SerialName("data") val data: String,
+    @SerialName("appToken") val appToken: String,
 )

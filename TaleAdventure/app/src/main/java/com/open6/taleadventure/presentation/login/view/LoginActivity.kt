@@ -1,20 +1,80 @@
 package com.open6.taleadventure.presentation.login.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.activity.viewModels
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import com.open6.taleadventure.R
+import com.open6.taleadventure.data.local.TaleAdventureSharedPreferences
 import com.open6.taleadventure.databinding.ActivityLoginBinding
 import com.open6.taleadventure.presentation.base.BaseViewBindingActivity
+import com.open6.taleadventure.presentation.login.viewmodel.LoginViewModel
+import com.open6.taleadventure.presentation.main.view.MainActivity
+import com.open6.taleadventure.presentation.onboard.view.OnboardActivity
+import com.open6.taleadventure.util.PublicString.ACCESS_TOKEN
+import com.open6.taleadventure.util.PublicString.DID_USER_WATCHED_ONBOARD
+import com.open6.taleadventure.util.extensions.makeToastMessage
 import timber.log.Timber
 
 class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
+    private val viewModel by viewModels<LoginViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setAutoLogin()
         setClickEvents()
+        setObservers()
+    }
+
+    private fun setAutoLogin() {
+        val isUserLoggedIn = !TaleAdventureSharedPreferences.getString(ACCESS_TOKEN).isNullOrBlank()
+        if (!isUserLoggedIn) return
+
+        val didUserWatchedOnboard =
+            TaleAdventureSharedPreferences.getBoolean(DID_USER_WATCHED_ONBOARD)
+        if (didUserWatchedOnboard) {
+            startActivity(Intent(this, MainActivity::class.java))
+            if (!isFinishing) finish()
+        } else {
+            startActivity(Intent(this, OnboardActivity::class.java))
+            if (!isFinishing) finish()
+        }
+    }
+
+    private fun setObservers() {
+        setLoginWithKakaoResponseObservers()
+    }
+
+    private fun setLoginWithKakaoResponseObservers() {
+        setLoginWithKakaoSuccessResponseObservers()
+        setLoginWithKakaoErrorResponseObservers()
+    }
+
+    private fun setLoginWithKakaoSuccessResponseObservers() {
+        viewModel.loginWithKakaoSuccessResponse.observe(this) { successData ->
+            TaleAdventureSharedPreferences.setString(
+                ACCESS_TOKEN, getString(R.string.app_token_wrapper, successData?.appToken)
+            )
+            val didUserWatchedOnboard =
+                TaleAdventureSharedPreferences.getBoolean(DID_USER_WATCHED_ONBOARD)
+            if (didUserWatchedOnboard) {
+                startActivity(Intent(this, MainActivity::class.java))
+                if (!isFinishing) finish()
+            } else {
+                startActivity(Intent(this, OnboardActivity::class.java))
+                if (!isFinishing) finish()
+            }
+        }
+    }
+
+    private fun setLoginWithKakaoErrorResponseObservers() {
+        viewModel.loginWithKakaoErrorResponse.observe(this) { errorMessage ->
+            makeToastMessage(errorMessage)
+        }
     }
 
     private fun setClickEvents() {
@@ -28,6 +88,7 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
                     Timber.e("카카오계정으로 로그인 실패 : $error")
                 } else if (token != null) {
                     Timber.e("카카오계정으로 로그인 성공 : ${token.accessToken}")
+                    viewModel.loginWithKakao(token.accessToken)
                 }
             }
 
@@ -47,6 +108,7 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
                         UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
                     } else if (token != null) {
                         Timber.i("카카오톡으로 로그인 성공 ${token.accessToken}")
+                        callback.invoke(token, null)
                     }
                 }
             } else {

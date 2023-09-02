@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tale Adventure</string>
     <string name="preference_file_name">%s.PREFERENCE_FILE</string>
+    <string name="app_token_wrapper">Bearer %s</string>
     <!--Public-->
     <string name="next">다음</string>
     <string name="cd_back">뒤로 가기 버튼</string>
