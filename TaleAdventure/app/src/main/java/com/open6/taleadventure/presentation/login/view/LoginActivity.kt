@@ -56,7 +56,9 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
 
     private fun setLoginWithKakaoSuccessResponseObservers() {
         viewModel.loginWithKakaoSuccessResponse.observe(this) { successData ->
-            TaleAdventureSharedPreferences.setString(ACCESS_TOKEN, successData?.appToken)
+            TaleAdventureSharedPreferences.setString(
+                ACCESS_TOKEN, getString(R.string.app_token_wrapper, successData?.appToken)
+            )
             val didUserWatchedOnboard =
                 TaleAdventureSharedPreferences.getBoolean(DID_USER_WATCHED_ONBOARD)
             if (didUserWatchedOnboard) {
@@ -86,11 +88,7 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
                     Timber.e("카카오계정으로 로그인 실패 : $error")
                 } else if (token != null) {
                     Timber.e("카카오계정으로 로그인 성공 : ${token.accessToken}")
-                    viewModel.loginWithKakao(
-                        getString(
-                            R.string.kakao_token_wrapper, token.accessToken
-                        )
-                    )
+                    viewModel.loginWithKakao(token.accessToken)
                 }
             }
 
