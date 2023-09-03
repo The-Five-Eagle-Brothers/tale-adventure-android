@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/iv_cloud_left_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:importantForAccessibility="no"
+        android:src="@drawable/img_cloud_example"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cloud_left_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
+        android:textAppearance="@style/Eb40"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cloud_left_cloud"
+        app:layout_constraintEnd_toEndOf="@id/iv_cloud_left_cloud"
+        app:layout_constraintStart_toStartOf="@id/iv_cloud_left_cloud"
+        app:layout_constraintTop_toTopOf="@id/iv_cloud_left_cloud"
+        tools:text="Day 1" />
+
+    <Button
+        android:id="@+id/btn_cloud_left_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/purple_300_8e59d7"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="10dp"
+        android:text="@string/play"
+        android:textAppearance="@style/Eb28"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/iv_cloud_left_cloud"
+        app:layout_constraintStart_toStartOf="@id/iv_cloud_left_cloud"
+        app:layout_constraintTop_toBottomOf="@id/tv_cloud_left_day" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
