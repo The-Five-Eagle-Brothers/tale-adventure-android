@@ -8,7 +8,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.ViewGradeSnackbarBinding
 
-class TaleAdventureSnackbar(
+class GradeSnackbar(
     rootView: View,
     private val isCorrect: Boolean,
     private val anchorView: View? = null,
