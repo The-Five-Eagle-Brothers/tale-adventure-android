@@ -9,6 +9,15 @@ class DailyAdventureGameActivity : BaseViewBindingActivity<ActivityDailyAdventur
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setViews()
+    }
+
+    private fun setViews() {
+        setWebView()
+    }
+
+    private fun setWebView() {
+        binding.wvDailyAdventureGame.loadUrl("https://www.naver.com/")
     }
 
     override fun setBinding(inflater: LayoutInflater): ActivityDailyAdventureGameBinding =
