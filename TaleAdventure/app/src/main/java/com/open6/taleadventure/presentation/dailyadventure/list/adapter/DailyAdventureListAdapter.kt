@@ -14,7 +14,7 @@ import com.open6.taleadventure.util.PublicInt.EVEN
 import com.open6.taleadventure.util.PublicInt.ODD
 import com.open6.taleadventure.util.extensions.isOdd
 
-class DailyAdventureListAdapter :
+class DailyAdventureListAdapter(private val navigateToDailyAdventureGameActivity: () -> Unit) :
     ListAdapter<DailyAdventure, RecyclerView.ViewHolder>(DiffUtilCallback<DailyAdventure>()) {
 
 
@@ -25,19 +25,28 @@ class DailyAdventureListAdapter :
         return if (viewType == ODD) {
             val binding =
                 ItemCloudLeftBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            CloudLeftViewHolder(binding)
+            CloudLeftViewHolder(binding, navigateToDailyAdventureGameActivity)
         } else {
             val binding =
                 ItemCloudLeftBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            CloudLeftViewHolder(binding)
+            CloudLeftViewHolder(binding, navigateToDailyAdventureGameActivity)
         }
     }
 
-    class CloudLeftViewHolder(private val binding: ItemCloudLeftBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class CloudLeftViewHolder(
+        private val binding: ItemCloudLeftBinding,
+        private val navigateToDailyAdventureGameActivity: () -> Unit,
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: DailyAdventure, position: Int, lastIndex: Int) {
             setData(item)
             setView(position, lastIndex)
+            setClickEvent()
+        }
+
+        private fun setClickEvent() {
+            binding.btnCloudLeftPlay.setOnClickListener {
+                navigateToDailyAdventureGameActivity.invoke()
+            }
         }
 
         private fun setView(position: Int, lastIndex: Int) {
@@ -50,11 +59,20 @@ class DailyAdventureListAdapter :
         }
     }
 
-    class CloudRightViewHolder(private val binding: ItemCloudRightBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class CloudRightViewHolder(
+        private val binding: ItemCloudRightBinding,
+        private val navigateToDailyAdventureGameActivity: () -> Unit,
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: DailyAdventure, position: Int, lastIndex: Int) {
             setData(item)
             setView(position, lastIndex)
+            setClickEvent()
+        }
+
+        private fun setClickEvent() {
+            binding.btnCloudRightPlay.setOnClickListener {
+                navigateToDailyAdventureGameActivity.invoke()
+            }
         }
 
         private fun setView(position: Int, lastIndex: Int) {
