@@ -20,4 +20,8 @@
     <color name="grey_600_525255">#525255</color>
     <color name="grey_700_373739">#373739</color>
     <color name="grey_800_1b1b1c">#1B1B1C</color>
+    <!--green-->
+    <color name="green_1_cc3cd080">#CC3CD080</color>
+    <!--red-->
+    <color name="red_1_ccff5555">#CCFF5555</color>
 </resources>
