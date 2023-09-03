@@ -71,4 +71,6 @@
     <string name="cd_word_game_backgronud">단어가 등장한 장면</string>
     <string name="cd_bookmark">북마크 버튼</string>
     <string name="end_good_job">참 잘했어요!</string>
+    <string name="grade_correct">정답이에요!</string>
+    <string name="grade_incorrect">다시 해볼까요?</string>
 </resources>

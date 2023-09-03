@@ -6,7 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.FragmentOnboardThirdBinding
-import com.open6.taleadventure.presentation.base.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
 import com.open6.taleadventure.presentation.onboard.viewmodel.OnboardThirdViewModel
 
 class OnboardThirdFragment :

@@ -8,7 +8,7 @@ import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.ActivityMainBinding
-import com.open6.taleadventure.presentation.base.BaseViewBindingActivity
+import com.open6.taleadventure.presentation.base.activity.BaseViewBindingActivity
 
 class MainActivity : BaseViewBindingActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -3,7 +3,7 @@ package com.open6.taleadventure.presentation.tale.view
 import android.os.Bundle
 import android.view.LayoutInflater
 import com.open6.taleadventure.databinding.ActivityTaleBinding
-import com.open6.taleadventure.presentation.base.BaseViewBindingActivity
+import com.open6.taleadventure.presentation.base.activity.BaseViewBindingActivity
 import com.open6.taleadventure.presentation.tale.adapter.ChapterAdapter
 
 class TaleActivity : BaseViewBindingActivity<ActivityTaleBinding>() {
