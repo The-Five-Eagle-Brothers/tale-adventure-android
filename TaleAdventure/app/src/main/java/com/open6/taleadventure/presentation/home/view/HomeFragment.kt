@@ -1,11 +1,13 @@
 package com.open6.taleadventure.presentation.home.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.open6.taleadventure.R
 import com.open6.taleadventure.databinding.FragmentHomeBinding
 import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.dailyadventure.game.view.DailyAdventureGameActivity
 import com.open6.taleadventure.presentation.home.adapter.LibraryAdapter
 import com.open6.taleadventure.presentation.home.viewmodel.HomeViewModel
 
@@ -39,7 +41,7 @@ class HomeFragment : BaseDataBindingFragment<FragmentHomeBinding>(R.layout.fragm
 
     private fun setGamePlayTVClickEvent() {
         binding.tvHomeGamePlay.setOnClickListener {
-            // TODO : 데일리 어드벤쳐 메인 뷰로 이동
+            startActivity(Intent(requireActivity(), DailyAdventureGameActivity::class.java))
         }
     }
 
