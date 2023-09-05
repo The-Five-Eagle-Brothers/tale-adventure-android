@@ -1,5 +1,6 @@
 package com.open6.taleadventure.presentation.dailyadventure.game.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import com.open6.taleadventure.databinding.ActivityDailyAdventureGameBinding
@@ -16,8 +17,12 @@ class DailyAdventureGameActivity : BaseViewBindingActivity<ActivityDailyAdventur
         setWebView()
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun setWebView() {
-        binding.wvDailyAdventureGame.loadUrl("https://www.naver.com/")
+        with(binding.wvDailyAdventureGame) {
+            settings.javaScriptEnabled = true
+            loadUrl("https://tale-adventure-webview.vercel.app/")
+        }
     }
 
     override fun setBinding(inflater: LayoutInflater): ActivityDailyAdventureGameBinding =
