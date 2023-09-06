@@ -19,7 +19,7 @@ class DailyAdventureGameActivity : BaseViewBindingActivity<ActivityDailyAdventur
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun setWebView() {
-        with(binding.wvDailyAdventureGame) {
+        binding.wvDailyAdventureGame.run {
             settings.javaScriptEnabled = true
             loadUrl("https://tale-adventure-webview.vercel.app/")
         }
