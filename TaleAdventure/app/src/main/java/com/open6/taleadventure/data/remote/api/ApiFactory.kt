@@ -5,6 +5,7 @@ import com.open6.taleadventure.BuildConfig
 import com.open6.taleadventure.data.remote.interceptor.TokenInterceptor
 import com.open6.taleadventure.data.remote.service.HomeService
 import com.open6.taleadventure.data.remote.service.LoginService
+import com.open6.taleadventure.data.remote.service.MyWordService
 import com.open6.taleadventure.data.remote.service.SetUserInfoService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -37,5 +38,6 @@ object ApiFactory {
         val loginService = create<LoginService>()
         val setUserInfoService = create<SetUserInfoService>()
         val homeService = create<HomeService>()
+        val myWordService = create<MyWordService>()
     }
 }
