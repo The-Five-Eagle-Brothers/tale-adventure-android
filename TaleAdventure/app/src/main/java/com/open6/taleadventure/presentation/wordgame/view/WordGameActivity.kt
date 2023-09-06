@@ -18,6 +18,8 @@ import com.open6.taleadventure.util.extensions.makeToastMessage
 class WordGameActivity :
     BaseDataBindingActivity<ActivityWordGameBinding>(R.layout.activity_word_game) {
     private val viewModel by viewModels<WordGameViewModel>()
+    private var chapterName: String = ""
+    private var taleName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,11 +70,16 @@ class WordGameActivity :
 
     private fun setNextQuiz(order: Int) {
         if (order > viewModel.maxGameOrder) {
-            Intent(this, EndActivity::class.java).also { intent -> startActivity(intent) }
-            if (!isFinishing) finish()
+            navigateToEndActivity()
         } else {
             setQuiz(order)
         }
+    }
+
+    private fun navigateToEndActivity() {
+        Intent(this, EndActivity::class.java).putExtra(CHAPTER_NAME, chapterName)
+            .putExtra(TALE_NAME, taleName).also { intent -> startActivity(intent) }
+        if (!isFinishing) finish()
     }
 
     private fun setGetChapterWordsFailureObservers() {
@@ -85,10 +92,16 @@ class WordGameActivity :
         val isFromChapter = intent.getBooleanExtra(IS_FROM_CHAPTER, false)
         if (isFromChapter) {
             val chapterName = intent.getStringExtra(CHAPTER_NAME)
-            if (chapterName != null) viewModel.getChapterWords(chapterName)
+            if (chapterName != null) {
+                this.chapterName = chapterName
+                viewModel.getChapterWords(chapterName)
+            }
         } else {
             val taleName = intent.getStringExtra(TALE_NAME)
-            if (taleName != null) viewModel.getMyWords(taleName)
+            if (taleName != null) {
+                this.taleName = taleName
+                viewModel.getMyWords(taleName)
+            }
         }
     }
 
@@ -138,14 +151,16 @@ class WordGameActivity :
     private fun submitAnswer() {
         if (viewModel.answer == viewModel.gameWords.value?.get(viewModel.currentGameOrder)?.name) {
             viewModel.currentGameOrder = viewModel.currentGameOrder.plus(1)
-            binding.root.makeGradeSnackbar(isCorrect = true,
+            binding.root.makeGradeSnackbar(
+                isCorrect = true,
                 anchorView = binding.ivWordGameImage,
                 onDismiss = {
                     resetAnswer()
                     setNextQuiz((viewModel.currentGameOrder))
                 })
         } else {
-            binding.root.makeGradeSnackbar(isCorrect = false,
+            binding.root.makeGradeSnackbar(
+                isCorrect = false,
                 anchorView = binding.ivWordGameImage,
                 onDismiss = {
                     resetAnswer()
