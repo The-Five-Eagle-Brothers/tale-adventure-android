@@ -18,8 +18,8 @@ class WordGameViewModel : ViewModel() {
     var currentGameOrder = 1
     var answer = ""
 
-    private val _getChapterWordsErrorResponse = MutableLiveData<String>()
-    val getChapterWordsErrorResponse: LiveData<String> = _getChapterWordsErrorResponse
+    private val _errorResponse = MutableLiveData<String>()
+    val errorResponse: LiveData<String> = _errorResponse
 
     fun getChapterWords(chapterName: String) {
         viewModelScope.launch {
@@ -27,8 +27,20 @@ class WordGameViewModel : ViewModel() {
                 .fold(onSuccess = { successResponse ->
                     _gameWords.value = successResponse.data
                 }, onFailure = { errorResponse ->
-                    _getChapterWordsErrorResponse.value = errorResponse.getErrorMessage()
+                    _errorResponse.value = errorResponse.getErrorMessage()
                 })
+        }
+    }
+
+    fun getMyWords(taleName: String) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                wordService.getMyWords(taleName)
+            }.fold(onSuccess = { successResponse ->
+                _gameWords.value = successResponse.data
+            }, onFailure = { errorResponse ->
+                _errorResponse.value = errorResponse.getErrorMessage()
+            })
         }
     }
 }

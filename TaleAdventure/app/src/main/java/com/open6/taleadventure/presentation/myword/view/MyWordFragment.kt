@@ -11,6 +11,7 @@ import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragmen
 import com.open6.taleadventure.presentation.myword.adapter.StoryAdapter
 import com.open6.taleadventure.presentation.myword.viewmodel.MyWordViewModel
 import com.open6.taleadventure.presentation.wordgame.view.WordGameActivity
+import com.open6.taleadventure.util.PublicString.IS_FROM_CHAPTER
 import com.open6.taleadventure.util.PublicString.TALE_NAME
 import com.open6.taleadventure.util.extensions.makeToastMessage
 
@@ -50,10 +51,11 @@ class MyWordFragment : BaseDataBindingFragment<FragmentMyWordBinding>(R.layout.f
 
     private val navigateToWordGameActivity: (String) -> Unit = { taleName ->
         kotlin.run {
-            Intent(activity, WordGameActivity::class.java).putExtra(TALE_NAME, taleName)
-                .also { intent ->
-                    startActivity(intent)
-                }
+            Intent(activity, WordGameActivity::class.java).putExtra(TALE_NAME, taleName).putExtra(
+                IS_FROM_CHAPTER, false
+            ).also { intent ->
+                startActivity(intent)
+            }
         }
     }
 
