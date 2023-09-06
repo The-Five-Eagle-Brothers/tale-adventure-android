@@ -8,7 +8,7 @@ import com.open6.taleadventure.R
 import com.open6.taleadventure.data.remote.model.home.ResponseHomeDto
 import com.open6.taleadventure.databinding.FragmentHomeBinding
 import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
-import com.open6.taleadventure.presentation.dailyadventure.game.view.DailyAdventureGameActivity
+import com.open6.taleadventure.presentation.dailyadventure.list.view.DailyAdventureListActivity
 import com.open6.taleadventure.presentation.home.adapter.LibraryAdapter
 import com.open6.taleadventure.presentation.home.viewmodel.HomeViewModel
 import com.open6.taleadventure.presentation.tale.view.TaleActivity
@@ -96,7 +96,7 @@ class HomeFragment : BaseDataBindingFragment<FragmentHomeBinding>(R.layout.fragm
 
     private fun setGamePlayTVClickEvent() {
         binding.tvHomeGamePlay.setOnClickListener {
-            startActivity(Intent(requireActivity(), DailyAdventureGameActivity::class.java))
+            startActivity(Intent(requireActivity(), DailyAdventureListActivity::class.java))
         }
     }
 
