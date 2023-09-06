@@ -6,33 +6,47 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.open6.taleadventure.R
+import com.open6.taleadventure.data.remote.model.home.ResponseHomeDto.TaleBook
 import com.open6.taleadventure.databinding.ItemLibraryBinding
 import com.open6.taleadventure.presentation.home.adapter.LibraryAdapter.LibraryViewHolder
-import com.open6.taleadventure.presentation.home.model.Library
 import com.open6.taleadventure.util.DiffUtilCallback
 
-class LibraryAdapter : ListAdapter<Library, LibraryViewHolder>(DiffUtilCallback<Library>()) {
+class LibraryAdapter : ListAdapter<TaleBook, LibraryViewHolder>(DiffUtilCallback<TaleBook>()) {
+    private var onItemClick: ((String) -> Unit)? = null
+    fun setOnItemClick(onClick: (String) -> Unit) {
+        onItemClick = onClick
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibraryViewHolder {
         val binding = ItemLibraryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return LibraryViewHolder(binding)
+        return LibraryViewHolder(binding, onItemClick)
     }
 
-    class LibraryViewHolder(val binding: ItemLibraryBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun onBind(itemList: List<Library>, position: Int) {
+    class LibraryViewHolder(
+        val binding: ItemLibraryBinding,
+        private val onItemClick: ((String) -> Unit)?,
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(itemList: List<TaleBook>, position: Int) {
             setData(itemList, position)
             setMargin(itemList, position)
+            setClickEvent(itemList[position])
         }
 
-        private fun setData(itemList: List<Library>, position: Int) {
-            with(binding) {
-                ivItemLibrary.load(itemList[position].imgUrl)
-                tvItemLibraryTitle.text = itemList[position].title
+        private fun setClickEvent(item: TaleBook) {
+            binding.ivItemLibrary.setOnClickListener {
+                onItemClick?.invoke(item.name)
             }
         }
 
-        private fun setMargin(itemList: List<Library>, position: Int) {
+        private fun setData(itemList: List<TaleBook>, position: Int) {
+            with(binding) {
+                ivItemLibrary.load(itemList[position].libraryImageUrl)
+                tvItemLibraryTitle.text = itemList[position].name
+            }
+        }
+
+        private fun setMargin(itemList: List<TaleBook>, position: Int) {
             val newMarginInPx =
                 binding.root.resources.getDimensionPixelSize(R.dimen.library_item_margin)
 
@@ -53,7 +67,7 @@ class LibraryAdapter : ListAdapter<Library, LibraryViewHolder>(DiffUtilCallback<
             }
         }
 
-        private fun setLastItemMargin(newMarginInPx: Int, position: Int, itemList: List<Library>) {
+        private fun setLastItemMargin(newMarginInPx: Int, position: Int, itemList: List<TaleBook>) {
             val lastLayoutParams =
                 binding.tvItemLibraryTitle.layoutParams as ViewGroup.MarginLayoutParams
             lastLayoutParams.setMargins(0, 0, 0, newMarginInPx)
