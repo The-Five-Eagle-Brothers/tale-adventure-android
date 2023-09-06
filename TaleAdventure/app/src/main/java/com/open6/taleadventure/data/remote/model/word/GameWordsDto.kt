@@ -10,7 +10,7 @@ data class ResponseGameWordsDto(
     @SerialName("mean") val mean: String,
     @SerialName("sentence") val sentence: String,
     @SerialName("example") val example: String,
-    @SerialName("bookMark") val bookMark: Boolean,
+    @SerialName("bookMark") var bookMark: Boolean,
     @SerialName("imageUrl") val imageUrl: String,
     @SerialName("chapter") val chapter: Chapter,
 ) {
