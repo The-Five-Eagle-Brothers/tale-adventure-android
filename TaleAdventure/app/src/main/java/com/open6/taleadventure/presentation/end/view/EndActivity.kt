@@ -26,6 +26,24 @@ class EndActivity : BaseDataBindingActivity<ActivityEndBinding>(R.layout.activit
     private fun setObservers() {
         setGameWordObservers()
         setErrorObservers()
+        setPatchBookmarkObservers()
+    }
+
+    private fun setPatchBookmarkObservers() {
+        setPatchBookmarkSuccessObservers()
+        setPatchBookmarkErrorObservers()
+    }
+
+    private fun setPatchBookmarkSuccessObservers() {
+        viewModel.updateBookmarkSuccessResponse.observe(this) { successMessage ->
+            if (!isFinishing) finish()
+        }
+    }
+
+    private fun setPatchBookmarkErrorObservers() {
+        viewModel.updateBookmarkErrorResponse.observe(this) { errorMessage ->
+            if (!isFinishing) finish()
+        }
     }
 
     private fun setErrorObservers() {
@@ -58,7 +76,7 @@ class EndActivity : BaseDataBindingActivity<ActivityEndBinding>(R.layout.activit
 
     private fun setCompleteIVClickEvent() {
         binding.btnEndComplete.setOnClickListener {
-            if (!isFinishing) finish()
+            viewModel.updateBookmark()
         }
     }
 
