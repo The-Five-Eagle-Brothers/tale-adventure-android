@@ -55,7 +55,7 @@ class DailyAdventureListAdapter(private val navigateToDailyAdventureGameActivity
 
         private fun setData(item: DailyAdventure) {
             binding.tvCloudLeftDay.text =
-                binding.root.context.getString(R.string.daily_adventure_day, item)
+                binding.root.context.getString(R.string.daily_adventure_day, item.day.toString())
         }
     }
 

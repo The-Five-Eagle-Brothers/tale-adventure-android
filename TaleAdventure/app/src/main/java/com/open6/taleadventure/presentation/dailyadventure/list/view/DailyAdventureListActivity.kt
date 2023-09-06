@@ -7,13 +7,25 @@ import com.open6.taleadventure.databinding.ActivityDailyAdventureListBinding
 import com.open6.taleadventure.presentation.base.activity.BaseViewBindingActivity
 import com.open6.taleadventure.presentation.dailyadventure.game.view.DailyAdventureGameActivity
 import com.open6.taleadventure.presentation.dailyadventure.list.adapter.DailyAdventureListAdapter
+import com.open6.taleadventure.presentation.dailyadventure.list.model.DailyAdventure
 
 class DailyAdventureListActivity : BaseViewBindingActivity<ActivityDailyAdventureListBinding>() {
+    private val dailyAdventureListAdapter by lazy {
+        DailyAdventureListAdapter(
+            navigateToDailyAdventureGameActivity
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setData()
         setViews()
         setClickEvents()
+    }
+
+    private fun setData() {
+
     }
 
     private fun setClickEvents() {
@@ -31,7 +43,8 @@ class DailyAdventureListActivity : BaseViewBindingActivity<ActivityDailyAdventur
     }
 
     private fun setDailyAdventureListAdapter() {
-        binding.rvDailyAdventureList.adapter = DailyAdventureListAdapter(navigateToDailyAdventureGameActivity)
+        binding.rvDailyAdventureList.adapter = dailyAdventureListAdapter
+        dailyAdventureListAdapter.submitList(listOf(DailyAdventure(1)))
     }
 
     private val navigateToDailyAdventureGameActivity: () -> Unit = {
