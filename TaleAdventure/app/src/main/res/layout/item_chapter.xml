@@ -44,6 +44,7 @@
         tools:text="1" />
 
     <LinearLayout
+        android:id="@+id/layout_chapter_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"

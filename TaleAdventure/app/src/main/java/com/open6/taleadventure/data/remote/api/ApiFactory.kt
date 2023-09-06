@@ -3,6 +3,7 @@ package com.open6.taleadventure.data.remote.api
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.open6.taleadventure.BuildConfig
 import com.open6.taleadventure.data.remote.interceptor.TokenInterceptor
+import com.open6.taleadventure.data.remote.service.ChapterService
 import com.open6.taleadventure.data.remote.service.HomeService
 import com.open6.taleadventure.data.remote.service.LoginService
 import com.open6.taleadventure.data.remote.service.MyWordService
@@ -39,5 +40,6 @@ object ApiFactory {
         val setUserInfoService = create<SetUserInfoService>()
         val homeService = create<HomeService>()
         val myWordService = create<MyWordService>()
+        val chapterService = create<ChapterService>()
     }
 }
