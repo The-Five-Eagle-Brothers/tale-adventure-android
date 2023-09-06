@@ -76,7 +76,7 @@ class WordGameActivity :
     }
 
     private fun setGetChapterWordsFailureObservers() {
-        viewModel.getChapterWordsErrorResponse.observe(this) { errorMessage ->
+        viewModel.errorResponse.observe(this) { errorMessage ->
             makeToastMessage(errorMessage)
         }
     }
@@ -88,7 +88,7 @@ class WordGameActivity :
             if (chapterName != null) viewModel.getChapterWords(chapterName)
         } else {
             val taleName = intent.getStringExtra(TALE_NAME)
-            if (taleName != null) viewModel.getChapterWords(taleName)
+            if (taleName != null) viewModel.getMyWords(taleName)
         }
     }
 
@@ -138,16 +138,14 @@ class WordGameActivity :
     private fun submitAnswer() {
         if (viewModel.answer == viewModel.gameWords.value?.get(viewModel.currentGameOrder)?.name) {
             viewModel.currentGameOrder = viewModel.currentGameOrder.plus(1)
-            binding.root.makeGradeSnackbar(
-                isCorrect = true,
+            binding.root.makeGradeSnackbar(isCorrect = true,
                 anchorView = binding.ivWordGameImage,
                 onDismiss = {
                     resetAnswer()
                     setNextQuiz((viewModel.currentGameOrder))
                 })
         } else {
-            binding.root.makeGradeSnackbar(
-                isCorrect = false,
+            binding.root.makeGradeSnackbar(isCorrect = false,
                 anchorView = binding.ivWordGameImage,
                 onDismiss = {
                     resetAnswer()
