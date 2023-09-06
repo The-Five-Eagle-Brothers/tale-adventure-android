@@ -74,4 +74,5 @@
     <string name="grade_correct">정답이에요!</string>
     <string name="grade_incorrect">다시 해볼까요?</string>
     <string name="daily_adventure_day">Day %s</string>
+    <string name="nickname_example">잰조</string>
 </resources>
