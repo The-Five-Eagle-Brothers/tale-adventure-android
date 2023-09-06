@@ -7,7 +7,8 @@ object PublicString {
     const val GET_HOME_DATA_PATH = "home/me"
     const val GET_MY_WORD_DATA_PATH = "talebook/retrieve"
     const val GET_CHAPTERS_PATH = "chapter/retrieve"
-    const val GET_CHAPTER_WORD_PATH = "word/retrieve/{chapter}"
+    const val GET_CHAPTER_WORD_PATH = "word/retrieve"
+    const val GET_MY_WORD_PATH = "word/retrieve/book-mark"
 
     // Error Messages
     const val SERVER_CONNECTION_ERROR_MESSAGE = "서버와 연결하는데 실패하였습니다"
