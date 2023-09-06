@@ -11,7 +11,8 @@ import com.open6.taleadventure.presentation.base.activity.BaseViewBindingActivit
 import com.open6.taleadventure.presentation.tale.adapter.ChapterAdapter
 import com.open6.taleadventure.presentation.tale.viewmodel.TaleViewModel
 import com.open6.taleadventure.presentation.wordgame.view.WordGameActivity
-import com.open6.taleadventure.util.PublicString.TALE_NAME
+import com.open6.taleadventure.util.PublicString.CHAPTER_NAME
+import com.open6.taleadventure.util.PublicString.IS_FROM_CHAPTER
 import com.open6.taleadventure.util.extensions.makeToastMessage
 
 class TaleActivity : BaseViewBindingActivity<ActivityTaleBinding>() {
@@ -80,8 +81,10 @@ class TaleActivity : BaseViewBindingActivity<ActivityTaleBinding>() {
         }
     }
 
-    private val navigateToGameActivity: (String) -> Unit = { taleName ->
-        Intent(this, WordGameActivity::class.java).putExtra(TALE_NAME, taleName).also { intent ->
+    private val navigateToGameActivity: (String) -> Unit = { chapterName ->
+        Intent(this, WordGameActivity::class.java).putExtra(CHAPTER_NAME, chapterName).putExtra(
+            IS_FROM_CHAPTER, true
+        ).also { intent ->
             startActivity(intent)
         }
     }
