@@ -7,5 +7,5 @@ import retrofit2.http.GET
 
 interface MyWordService {
     @GET(GET_MY_WORD_DATA_PATH)
-    fun getMyWordData(): ResponseWrapper<List<ResponseMyWordDto>>
+    suspend fun getMyWordData(): ResponseWrapper<List<ResponseMyWordDto>>
 }
