@@ -44,7 +44,7 @@ object TaleAdventureSharedPreferences {
         return preferences.getBoolean(key, false)
     }
 
-    private fun clear() {
+    fun clear() {
         preferences.edit { clear() }
     }
 }
