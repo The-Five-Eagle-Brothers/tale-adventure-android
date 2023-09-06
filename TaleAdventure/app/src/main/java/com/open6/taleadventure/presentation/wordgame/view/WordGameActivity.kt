@@ -12,8 +12,8 @@ import com.open6.taleadventure.presentation.wordgame.viewmodel.WordGameViewModel
 import com.open6.taleadventure.util.PublicString.CHAPTER_NAME
 import com.open6.taleadventure.util.PublicString.IS_FROM_CHAPTER
 import com.open6.taleadventure.util.PublicString.TALE_NAME
+import com.open6.taleadventure.util.extensions.makeGradeSnackbar
 import com.open6.taleadventure.util.extensions.makeToastMessage
-import com.open6.taleadventure.view.GradeSnackbar
 
 class WordGameActivity :
     BaseDataBindingActivity<ActivityWordGameBinding>(R.layout.activity_word_game) {
@@ -138,18 +138,18 @@ class WordGameActivity :
     private fun submitAnswer() {
         if (viewModel.answer == viewModel.gameWords.value?.get(viewModel.currentGameOrder)?.name) {
             viewModel.currentGameOrder = viewModel.currentGameOrder.plus(1)
-            GradeSnackbar(rootView = binding.root,
+            binding.root.makeGradeSnackbar(
                 isCorrect = true,
                 anchorView = binding.ivWordGameImage,
-                onDismissed = {
+                onDismiss = {
                     resetAnswer()
                     setNextQuiz((viewModel.currentGameOrder))
                 })
         } else {
-            GradeSnackbar(rootView = binding.root,
+            binding.root.makeGradeSnackbar(
                 isCorrect = false,
                 anchorView = binding.ivWordGameImage,
-                onDismissed = {
+                onDismiss = {
                     resetAnswer()
                 })
         }
