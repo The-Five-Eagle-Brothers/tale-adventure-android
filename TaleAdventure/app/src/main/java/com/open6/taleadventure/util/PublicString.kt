@@ -5,7 +5,7 @@ object PublicString {
     const val AUTHORIZATION = "Authorization"
     const val LOGIN_PATH = "auth/kakao"
     const val GET_HOME_DATA_PATH = "home/me"
-    const val GET_MY_WORD_DATA_PATH = "home/retrieve"
+    const val GET_MY_WORD_DATA_PATH = "talebook/retrieve"
 
     // Error Messages
     const val SERVER_CONNECTION_ERROR_MESSAGE = "서버와 연결하는데 실패하였습니다"
