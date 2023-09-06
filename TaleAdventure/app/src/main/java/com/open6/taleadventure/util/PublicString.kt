@@ -4,6 +4,7 @@ object PublicString {
     // Data
     const val AUTHORIZATION = "Authorization"
     const val LOGIN_PATH = "auth/kakao"
+    const val GET_HOME_DATA_PATH = "home/me"
 
     // Error Messages
     const val SERVER_CONNECTION_ERROR_MESSAGE = "서버와 연결하는데 실패하였습니다"
@@ -13,4 +14,6 @@ object PublicString {
     // SharedPreferences
     const val ACCESS_TOKEN = "ACCESS_TOKEN"
     const val DID_USER_WATCHED_ONBOARD = "DID_USER_WATCHED_ONBOARD"
+
+    const val TALE_NAME = "TALE_NAME"
 }

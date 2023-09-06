@@ -3,6 +3,7 @@ package com.open6.taleadventure.data.remote.api
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.open6.taleadventure.BuildConfig
 import com.open6.taleadventure.data.remote.interceptor.TokenInterceptor
+import com.open6.taleadventure.data.remote.service.HomeService
 import com.open6.taleadventure.data.remote.service.LoginService
 import com.open6.taleadventure.data.remote.service.SetUserInfoService
 import kotlinx.serialization.json.Json
@@ -35,5 +36,6 @@ object ApiFactory {
     object ServicePool {
         val loginService = create<LoginService>()
         val setUserInfoService = create<SetUserInfoService>()
+        val homeService = create<HomeService>()
     }
 }
