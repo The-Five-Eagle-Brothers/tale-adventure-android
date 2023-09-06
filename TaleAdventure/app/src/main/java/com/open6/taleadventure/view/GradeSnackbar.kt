@@ -12,6 +12,7 @@ class GradeSnackbar(
     rootView: View,
     private val isCorrect: Boolean,
     private val anchorView: View? = null,
+    private val onDismissed: () -> Unit,
 ) {
     private val context = rootView.context
     private val snackbar = Snackbar.make(rootView, "", 1750)
@@ -23,6 +24,16 @@ class GradeSnackbar(
     init {
         setView()
         setData()
+        setCallback()
+    }
+
+    private fun setCallback() {
+        snackbar.addCallback(object : Snackbar.Callback() {
+            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                super.onDismissed(transientBottomBar, event)
+                onDismissed.invoke()
+            }
+        })
     }
 
     private fun setView() {

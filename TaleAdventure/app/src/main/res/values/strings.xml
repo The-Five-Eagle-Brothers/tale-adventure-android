@@ -24,6 +24,7 @@
     <string name="oss_license">오픈소스 고지</string>
     <string name="chapter">챕터</string>
     <string name="cd_tale">동화책 표지</string>
+    <string name="server_error">서버에 문제가 발생하였습니다. 다시 시도해 주세요.</string>
     <!--Login-->
     <string name="cd_login_bg">로그인 화면 배경</string>
     <string name="cd_kakao_login_btn">카카오 로그인 버튼</string>
@@ -68,6 +69,7 @@
     <!--My Word-->
     <string name="my_word_title">나만의 단어장</string>
     <string name="cd_blank_space">빈 칸</string>
+    <!--Word Game-->
     <string name="cd_word_game_backgronud">단어가 등장한 장면</string>
     <string name="cd_bookmark">북마크 버튼</string>
     <string name="end_good_job">참 잘했어요!</string>
@@ -75,4 +77,5 @@
     <string name="grade_incorrect">다시 해볼까요?</string>
     <string name="daily_adventure_day">Day %s</string>
     <string name="nickname_example">잰조</string>
+    <string name="game_indicator">%d/%d</string>
 </resources>
