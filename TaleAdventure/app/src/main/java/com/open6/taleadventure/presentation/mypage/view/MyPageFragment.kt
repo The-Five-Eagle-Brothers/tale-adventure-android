@@ -7,8 +7,10 @@ import androidx.fragment.app.viewModels
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.kakao.sdk.user.UserApiClient
 import com.open6.taleadventure.R
+import com.open6.taleadventure.data.local.TaleAdventureSharedPreferences
 import com.open6.taleadventure.databinding.FragmentMyPageBinding
 import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
+import com.open6.taleadventure.presentation.login.view.LoginActivity
 import com.open6.taleadventure.presentation.mypage.viewmodel.MyPageViewModel
 import timber.log.Timber
 
@@ -24,6 +26,24 @@ class MyPageFragment : BaseDataBindingFragment<FragmentMyPageBinding>(R.layout.f
 
     private fun setClickEvents() {
         setOssTVClickEvent()
+        setLogoutTVClickEvent()
+
+    }
+
+    private fun setLogoutTVClickEvent() {
+        binding.tvMyPageLogout.setOnClickListener {
+            logout()
+        }
+    }
+
+    private fun logout() {
+        TaleAdventureSharedPreferences.clear()
+        
+        val activity = requireActivity()
+        startActivity(Intent(activity, LoginActivity::class.java))
+        if (!activity.isFinishing) {
+            activity.finish()
+        }
     }
 
     private fun setOssTVClickEvent() {
