@@ -35,7 +35,6 @@
             android:id="@+id/layout_end_score_board"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="140dp"
             android:background="@drawable/bg_white_radius_24"
             android:backgroundTint="#80FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
