@@ -37,7 +37,7 @@ class WordGameViewModel : ViewModel() {
             kotlin.runCatching {
                 wordService.getMyWords(taleName)
             }.fold(onSuccess = { successResponse ->
-                _gameWords.value = successResponse.data
+                _gameWords.value = successResponse.data.filter { it.bookMark }
             }, onFailure = { errorResponse ->
                 _errorResponse.value = errorResponse.getErrorMessage()
             })
