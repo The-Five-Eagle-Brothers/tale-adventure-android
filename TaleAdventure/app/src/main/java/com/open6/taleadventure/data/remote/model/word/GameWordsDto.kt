@@ -27,8 +27,8 @@ data class ResponseGameWordsDto(
             @SerialName("name") val name: String,
             @SerialName("category") val category: String,
             @SerialName("libraryImageUrl") val libraryImageUrl: String,
-            @SerialName("ChapterImageUrl") val chapterImageUrl: String,
-            @SerialName("WordBookImageUrl") val wordBookImageUrl: String,
+            @SerialName("chapterImageUrl") val chapterImageUrl: String,
+            @SerialName("wordBookImageUrl") val wordBookImageUrl: String,
         )
     }
 }
