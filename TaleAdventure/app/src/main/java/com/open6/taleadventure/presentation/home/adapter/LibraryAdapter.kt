@@ -56,26 +56,24 @@ class LibraryAdapter : ListAdapter<TaleBook, LibraryViewHolder>(DiffUtilCallback
 
         private fun setStartItemMargin(newMarginInPx: Int, position: Int) {
             val firstLayoutParams =
-                binding.tvItemLibraryTitle.layoutParams as ViewGroup.MarginLayoutParams
+                binding.root.layoutParams as ViewGroup.MarginLayoutParams
             firstLayoutParams.setMargins(newMarginInPx, 0, 0, 0)
 
             if (position == 0) {
                 with(binding) {
-                    ivItemLibrary.layoutParams = firstLayoutParams
-                    tvItemLibraryTitle.layoutParams = firstLayoutParams
+                    root.layoutParams = firstLayoutParams
                 }
             }
         }
 
         private fun setLastItemMargin(newMarginInPx: Int, position: Int, itemList: List<TaleBook>) {
             val lastLayoutParams =
-                binding.tvItemLibraryTitle.layoutParams as ViewGroup.MarginLayoutParams
+                binding.root.layoutParams as ViewGroup.MarginLayoutParams
             lastLayoutParams.setMargins(0, 0, 0, newMarginInPx)
 
             if (position == itemList.lastIndex) {
                 with(binding) {
-                    ivItemLibrary.layoutParams = lastLayoutParams
-                    tvItemLibraryTitle.layoutParams = lastLayoutParams
+                    root.layoutParams = lastLayoutParams
                 }
             }
         }
