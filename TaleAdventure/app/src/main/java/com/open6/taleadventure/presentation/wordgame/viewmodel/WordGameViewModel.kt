@@ -14,7 +14,7 @@ class WordGameViewModel : ViewModel() {
     private val _gameWords = MutableLiveData<List<ResponseGameWordsDto>?>()
     val gameWords: LiveData<List<ResponseGameWordsDto>?> = _gameWords
 
-    val maxGameOrder = _gameWords.value?.size ?: 0
+    val maxGameOrder get() = _gameWords.value?.size ?: 0
     var currentGameOrder = 1
     var answer = ""
 
