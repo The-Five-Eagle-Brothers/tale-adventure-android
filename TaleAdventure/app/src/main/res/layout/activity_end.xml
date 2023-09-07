@@ -66,7 +66,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_end_words"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="335dp"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@android:color/transparent"
