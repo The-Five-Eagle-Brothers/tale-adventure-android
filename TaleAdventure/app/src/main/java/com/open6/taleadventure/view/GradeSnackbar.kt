@@ -15,7 +15,7 @@ class GradeSnackbar(
     private val onDismiss: (() -> Unit)? = null,
 ) {
     private val context = rootView.context
-    private val snackbar = Snackbar.make(rootView, "", 1750)
+    private val snackbar = Snackbar.make(rootView, "", 1000)
     private val snackbarLayout = snackbar.view as Snackbar.SnackbarLayout
 
     private val inflater = LayoutInflater.from(context)

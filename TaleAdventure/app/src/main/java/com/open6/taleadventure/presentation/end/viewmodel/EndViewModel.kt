@@ -8,15 +8,16 @@ import com.open6.taleadventure.data.remote.api.ApiFactory.ServicePool.wordServic
 import com.open6.taleadventure.data.remote.model.word.ResponseGameWordsDto
 import com.open6.taleadventure.util.extensions.getErrorMessage
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class EndViewModel : ViewModel() {
 
-    val isBookmarkedList = mutableListOf<Boolean>()
+    var isBookmarkedList = mutableListOf<Boolean>()
 
     private val _gameWords = MutableLiveData<List<ResponseGameWordsDto>?>()
     val gameWords: LiveData<List<ResponseGameWordsDto>?> = _gameWords
 
-    private val updatedGameWords: List<ResponseGameWordsDto>? = _gameWords.value
+    private val updatedGameWords: List<ResponseGameWordsDto>? get() = _gameWords.value
     private fun updateGameWords() {
         for (position in 0 until isBookmarkedList.size) {
             updatedGameWords?.get(position)?.bookMark = isBookmarkedList[position]
@@ -48,19 +49,20 @@ class EndViewModel : ViewModel() {
         }
     }
 
-    private val _updateBookmarkSuccessResponse = MutableLiveData<String?>()
-    val updateBookmarkSuccessResponse: LiveData<String?> = _updateBookmarkSuccessResponse
+    private val _updateBookmarkSuccessResponse = MutableLiveData<Void?>()
+    val updateBookmarkSuccessResponse: LiveData<Void?> = _updateBookmarkSuccessResponse
 
     private val _updateBookmarkErrorResponse = MutableLiveData<String>()
     val updateBookmarkErrorResponse: LiveData<String> = _updateBookmarkErrorResponse
 
     fun updateBookmark() {
         updateGameWords()
+        Timber.e(updatedGameWords.toString())
         viewModelScope.launch {
             kotlin.runCatching {
                 wordService.patchWordIsBookmarked(updatedGameWords!!)
             }.fold(onSuccess = { successResponse ->
-                _updateBookmarkSuccessResponse.value = successResponse.data
+                _updateBookmarkSuccessResponse.value = successResponse
             }, onFailure = { errorResponse ->
                 _updateBookmarkErrorResponse.value = errorResponse.getErrorMessage()
             })

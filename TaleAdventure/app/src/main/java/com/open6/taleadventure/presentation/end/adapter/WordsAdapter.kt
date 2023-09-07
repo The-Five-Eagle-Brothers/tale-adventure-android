@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.open6.taleadventure.data.remote.model.word.ResponseGameWordsDto
 import com.open6.taleadventure.databinding.ItemGameScoreBinding
 import com.open6.taleadventure.util.DiffUtilCallback
+import timber.log.Timber
 
 class WordsAdapter :
     ListAdapter<ResponseGameWordsDto, WordsAdapter.WordsViewHolder>(DiffUtilCallback<ResponseGameWordsDto>()) {
@@ -27,11 +28,15 @@ class WordsAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(itemList: List<ResponseGameWordsDto>, position: Int) {
             setViews(itemList[position])
-            setClickEvents(position, binding.ivItemGameScoreBookmark.isSelected)
+            setClickEvents(position)
         }
 
-        private fun setClickEvents(position: Int, currentlyBookmarked: Boolean) {
-            onClick?.invoke(position, !currentlyBookmarked)
+        private fun setClickEvents(position: Int) {
+            binding.ivItemGameScoreBookmark.setOnClickListener {
+                it.isSelected = !it.isSelected
+                onClick?.invoke(position, it.isSelected)
+                Timber.e(it.isSelected.toString())
+            }
         }
 
         private fun setViews(word: ResponseGameWordsDto) {

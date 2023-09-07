@@ -18,5 +18,5 @@ interface WordService {
     suspend fun getMyWords(@Query("name") name: String): ResponseWrapper<List<ResponseGameWordsDto>>
 
     @PATCH(PATCH_WORD_IS_BOOKMARKED)
-    suspend fun patchWordIsBookmarked(@Body gameWords: List<ResponseGameWordsDto>): ResponseWrapper<String>
+    suspend fun patchWordIsBookmarked(@Body gameWords: List<ResponseGameWordsDto>): Void?
 }
