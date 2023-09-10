@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/iv_cloud_right_cloud"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="145dp"
         android:backgroundTint="@android:color/transparent"
         android:importantForAccessibility="no"
         android:src="@drawable/img_cloud_example"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
