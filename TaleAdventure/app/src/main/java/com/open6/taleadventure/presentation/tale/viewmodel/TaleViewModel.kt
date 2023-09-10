@@ -18,9 +18,9 @@ class TaleViewModel : ViewModel() {
     private val _getChaptersErrorResponse = MutableLiveData<String>()
     val getChaptersErrorResponse: LiveData<String> = _getChaptersErrorResponse
 
-    fun getChapters() {
+    fun getChapters(taleName: String) {
         viewModelScope.launch {
-            kotlin.runCatching { chapterService.getChapters() }
+            kotlin.runCatching { chapterService.getChapters(taleName) }
                 .fold(onSuccess = { successResponse ->
                     _getChaptersSuccessResponse.value = successResponse.data
                 }, onFailure = { errorResponse ->

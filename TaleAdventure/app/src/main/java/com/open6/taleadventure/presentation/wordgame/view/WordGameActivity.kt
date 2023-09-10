@@ -45,6 +45,16 @@ class WordGameActivity :
                 makeToastMessage(getString(R.string.server_error))
                 return@observe
             }
+            if (successData.isEmpty()) {
+                if (intent.getBooleanExtra(
+                        IS_FROM_CHAPTER, false
+                    )
+                ) makeToastMessage(getString(R.string.error_not_ye))
+                else makeToastMessage(getString(R.string.error_no_bookmark))
+
+                if (!isFinishing) finish()
+                return@observe
+            }
             setQuiz(order = 1)
         }
     }
@@ -149,19 +159,17 @@ class WordGameActivity :
     }
 
     private fun submitAnswer() {
-        if (viewModel.answer == viewModel.gameWords.value?.get(viewModel.currentGameOrder)?.name) {
+        if (viewModel.answer == viewModel.gameWords.value?.get(viewModel.currentGameOrder - 1)?.name) {
             viewModel.currentGameOrder = viewModel.currentGameOrder.plus(1)
-            binding.root.makeGradeSnackbar(
-                isCorrect = true,
-                anchorView = binding.ivWordGameImage,
+            binding.root.makeGradeSnackbar(isCorrect = true,
+                anchorView = binding.tvWordGamePrefix,
                 onDismiss = {
                     resetAnswer()
                     setNextQuiz((viewModel.currentGameOrder))
                 })
         } else {
-            binding.root.makeGradeSnackbar(
-                isCorrect = false,
-                anchorView = binding.ivWordGameImage,
+            binding.root.makeGradeSnackbar(isCorrect = false,
+                anchorView = binding.tvWordGamePrefix,
                 onDismiss = {
                     resetAnswer()
                 })
@@ -174,10 +182,11 @@ class WordGameActivity :
             setBackgroundResource(R.drawable.img_char_blank)
         }
 
-        binding.tvWordGameFirstBlankChar.run {
+        binding.tvWordGameSecondBlankChar.run {
             text = ""
             setBackgroundResource(R.drawable.img_char_blank)
         }
+        viewModel.answer = ""
     }
 
     private fun setBackIVClickEvent() {

@@ -65,7 +65,8 @@ class HomeFragment : BaseDataBindingFragment<FragmentHomeBinding>(R.layout.fragm
 
     private fun ResponseHomeDto?.setData() {
         binding.run {
-            tvHomeDay.text = (this@setData?.day ?: 1).toString()
+            tvHomeDay.text =
+                getString(R.string.daily_adventure_day, (this@setData?.day ?: 1).toString())
             tvHomeNickname.text =
                 (this@setData?.nickname ?: getString(R.string.nickname_example)).toString()
         }

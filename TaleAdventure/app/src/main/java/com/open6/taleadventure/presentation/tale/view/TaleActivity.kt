@@ -13,6 +13,7 @@ import com.open6.taleadventure.presentation.tale.viewmodel.TaleViewModel
 import com.open6.taleadventure.presentation.wordgame.view.WordGameActivity
 import com.open6.taleadventure.util.PublicString.CHAPTER_NAME
 import com.open6.taleadventure.util.PublicString.IS_FROM_CHAPTER
+import com.open6.taleadventure.util.PublicString.TALE_NAME
 import com.open6.taleadventure.util.extensions.makeToastMessage
 
 class TaleActivity : BaseViewBindingActivity<ActivityTaleBinding>() {
@@ -46,7 +47,10 @@ class TaleActivity : BaseViewBindingActivity<ActivityTaleBinding>() {
     }
 
     private fun List<ResponseChapterDto>?.setData() {
-        binding.ivTaleBack.load(this?.first()?.taleBook?.chapterImageUrl)
+        binding.run {
+            ivTaleImage.load(this@setData?.first()?.taleBook?.chapterImageUrl)
+            tvTaleTitle.text = this@setData?.first()?.taleBook?.name
+        }
     }
 
     private fun List<ResponseChapterDto>?.updateChapterAdapter() {
@@ -60,7 +64,10 @@ class TaleActivity : BaseViewBindingActivity<ActivityTaleBinding>() {
     }
 
     private fun getData() {
-        viewModel.getChapters()
+        val taleName = intent.getStringExtra(TALE_NAME)
+        if (taleName != null) {
+            viewModel.getChapters(taleName)
+        }
     }
 
     private fun setClickEvents() {

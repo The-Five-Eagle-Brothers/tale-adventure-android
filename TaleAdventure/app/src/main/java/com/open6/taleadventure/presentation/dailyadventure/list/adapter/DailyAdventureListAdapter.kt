@@ -28,8 +28,8 @@ class DailyAdventureListAdapter(private val navigateToDailyAdventureGameActivity
             CloudLeftViewHolder(binding, navigateToDailyAdventureGameActivity)
         } else {
             val binding =
-                ItemCloudLeftBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            CloudLeftViewHolder(binding, navigateToDailyAdventureGameActivity)
+                ItemCloudRightBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            CloudRightViewHolder(binding, navigateToDailyAdventureGameActivity)
         }
     }
 
@@ -39,7 +39,7 @@ class DailyAdventureListAdapter(private val navigateToDailyAdventureGameActivity
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: DailyAdventure, position: Int, lastIndex: Int) {
             setData(item)
-            setView(position, lastIndex)
+            setView(item, position, lastIndex)
             setClickEvent()
         }
 
@@ -49,13 +49,14 @@ class DailyAdventureListAdapter(private val navigateToDailyAdventureGameActivity
             }
         }
 
-        private fun setView(position: Int, lastIndex: Int) {
+        private fun setView(item: DailyAdventure, position: Int, lastIndex: Int) {
             if (position == lastIndex) binding.btnCloudLeftPlay.visibility = View.VISIBLE
+            binding.ivCloudLeftCloud.setImageResource(item.image)
         }
 
         private fun setData(item: DailyAdventure) {
             binding.tvCloudLeftDay.text =
-                binding.root.context.getString(R.string.daily_adventure_day, item)
+                binding.root.context.getString(R.string.daily_adventure_day, item.day.toString())
         }
     }
 
@@ -65,7 +66,7 @@ class DailyAdventureListAdapter(private val navigateToDailyAdventureGameActivity
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(item: DailyAdventure, position: Int, lastIndex: Int) {
             setData(item)
-            setView(position, lastIndex)
+            setView(item, position, lastIndex)
             setClickEvent()
         }
 
@@ -75,13 +76,14 @@ class DailyAdventureListAdapter(private val navigateToDailyAdventureGameActivity
             }
         }
 
-        private fun setView(position: Int, lastIndex: Int) {
-            if (position == lastIndex) binding.ivCloudRightCloud.visibility = View.VISIBLE
+        private fun setView(item: DailyAdventure, position: Int, lastIndex: Int) {
+            if (position == lastIndex) binding.btnCloudRightPlay.visibility = View.VISIBLE
+            binding.ivCloudRightCloud.setImageResource(item.image)
         }
 
         private fun setData(item: DailyAdventure) {
             binding.tvCloudRightDay.text =
-                binding.root.context.getString(R.string.daily_adventure_day, item)
+                binding.root.context.getString(R.string.daily_adventure_day, item.day.toString())
         }
     }
 

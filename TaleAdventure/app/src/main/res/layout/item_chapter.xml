@@ -70,7 +70,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="3"
             android:paddingVertical="16dp"
             android:paddingStart="12dp"
             android:paddingEnd="37dp"

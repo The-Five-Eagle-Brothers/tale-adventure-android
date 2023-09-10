@@ -14,7 +14,7 @@ class WordGameViewModel : ViewModel() {
     private val _gameWords = MutableLiveData<List<ResponseGameWordsDto>?>()
     val gameWords: LiveData<List<ResponseGameWordsDto>?> = _gameWords
 
-    val maxGameOrder = _gameWords.value?.size ?: 0
+    val maxGameOrder get() = _gameWords.value?.size ?: 0
     var currentGameOrder = 1
     var answer = ""
 
@@ -37,7 +37,7 @@ class WordGameViewModel : ViewModel() {
             kotlin.runCatching {
                 wordService.getMyWords(taleName)
             }.fold(onSuccess = { successResponse ->
-                _gameWords.value = successResponse.data
+                _gameWords.value = successResponse.data.filter { it.bookMark }
             }, onFailure = { errorResponse ->
                 _errorResponse.value = errorResponse.getErrorMessage()
             })

@@ -36,7 +36,7 @@ class StoryAdapter :
         }
 
         private fun ResponseMyWordDto.setData() {
-            binding.ivItemLibrary.load(this)
+            binding.ivItemLibrary.load(this.wordBookImageUrl)
         }
 
         private fun ResponseMyWordDto.setClickEvents() {

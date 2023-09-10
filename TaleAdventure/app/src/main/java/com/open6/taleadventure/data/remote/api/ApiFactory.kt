@@ -19,6 +19,7 @@ object ApiFactory {
     private val json by lazy {
         Json {
             coerceInputValues = true
+            ignoreUnknownKeys = true
         }
     }
     private val client by lazy {

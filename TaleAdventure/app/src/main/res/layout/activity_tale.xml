@@ -63,8 +63,10 @@
             android:id="@+id/rv_tale_chapter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
             tools:listitem="@layout/item_chapter" />
     </LinearLayout>
 

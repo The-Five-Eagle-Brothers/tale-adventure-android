@@ -24,7 +24,6 @@
             android:layout_marginBottom="32dp"
             android:contentDescription="@string/cd_word_game_backgronud"
             android:src="@drawable/img_word_game_example"
-            app:layout_constraintBottom_toTopOf="@id/tv_word_game_prefix"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside" />
@@ -55,70 +54,86 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="1/5" />
 
-        <TextView
-            android:id="@+id/tv_word_game_prefix"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="38dp"
-            android:layout_marginBottom="24dp"
-            android:ellipsize="middle"
-            android:gravity="center|bottom"
-            android:textAppearance="@style/B28"
-            app:layout_constraintBottom_toTopOf="@id/tv_word_game_first_blank_char"
-            app:layout_constraintTop_toBottomOf="@id/iv_word_game_image"
-            tools:text="장미는 어린왕자에게 짓굳게 한 것을" />
-
-        <TextView
-            android:id="@+id/tv_word_game_first_blank_char"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/img_char_blank"
-            android:contentDescription="@string/cd_blank_space"
-            android:gravity="center"
-            android:maxLength="1"
-            android:padding="8dp"
-            android:textAppearance="@style/Eb46"
-            android:textColor="@color/purple_400_7141b3"
-            app:layout_constraintBottom_toTopOf="@id/tv_word_game_postfix"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@id/tv_word_game_second_blank_char"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="후" />
-
-        <TextView
-            android:id="@+id/tv_word_game_second_blank_char"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/img_char_blank"
-            android:contentDescription="@string/cd_blank_space"
-            android:gravity="center"
-            android:maxLength="1"
-            android:padding="8dp"
-            android:textAppearance="@style/Eb46"
-            android:textColor="@color/purple_400_7141b3"
-            app:layout_constraintBottom_toTopOf="@id/tv_word_game_postfix"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_word_game_first_blank_char"
-            tools:text="회" />
-
-
-        <TextView
-            android:id="@+id/tv_word_game_postfix"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="38dp"
-            android:layout_marginBottom="32dp"
-            android:ellipsize="middle"
-            android:gravity="center"
-            android:textAppearance="@style/B28"
             app:layout_constraintBottom_toTopOf="@id/layout_word_game_char"
-            tools:text="했어요" />
+            app:layout_constraintTop_toBottomOf="@id/iv_word_game_image">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_word_game_prefix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="38dp"
+                    android:layout_marginTop="30dp"
+                    android:ellipsize="middle"
+                    android:gravity="center|bottom"
+                    android:textAppearance="@style/B28"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="장미는 어린왕자에게 짓굳게 한 것을" />
+
+                <TextView
+                    android:id="@+id/tv_word_game_first_blank_char"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="24dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/img_char_blank"
+                    android:contentDescription="@string/cd_blank_space"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:padding="8dp"
+                    android:textAppearance="@style/Eb46"
+                    android:textColor="@color/purple_400_7141b3"
+                    app:layout_constraintBottom_toTopOf="@id/tv_word_game_postfix"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/tv_word_game_second_blank_char"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_word_game_prefix"
+                    tools:text="후" />
+
+                <TextView
+                    android:id="@+id/tv_word_game_second_blank_char"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="24dp"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/img_char_blank"
+                    android:contentDescription="@string/cd_blank_space"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:padding="8dp"
+                    android:textAppearance="@style/Eb46"
+                    android:textColor="@color/purple_400_7141b3"
+                    app:layout_constraintBottom_toTopOf="@id/tv_word_game_postfix"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_word_game_first_blank_char"
+                    app:layout_constraintTop_toBottomOf="@id/tv_word_game_prefix"
+                    tools:text="회" />
+
+                <TextView
+                    android:id="@+id/tv_word_game_postfix"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="38dp"
+
+                    android:layout_marginBottom="32dp"
+                    android:ellipsize="middle"
+                    android:gravity="center"
+                    android:textAppearance="@style/B28"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_word_game_first_blank_char"
+                    tools:text="했어요" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_word_game_char"
@@ -128,7 +143,7 @@
             android:clipToPadding="false"
             android:elevation="6dp"
             android:paddingTop="43dp"
-            android:paddingBottom="62dp"
+            android:paddingBottom="42dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_goneMarginTop="20dp">
 
