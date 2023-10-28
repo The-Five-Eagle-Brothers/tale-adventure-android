@@ -10,14 +10,10 @@ data class RequestSetAgeDto(
 
 @Serializable
 data class ResponseSetAgeDto(
-    @SerialName("nickName")
-    val nickName: String?,
-    @SerialName("email")
-    val email: String?,
-    @SerialName("gender")
-    val gender: String?,
-    @SerialName("age")
-    val age: Int?,
-    @SerialName("status")
-    val status: String?,
+    @SerialName("nickname") val nickname: String?,
+    @SerialName("email") val email: String?,
+    @SerialName("gender") val gender: String?,
+    @SerialName("age") val age: Int?,
+    @SerialName("day") val day: Int?,
+    @SerialName("status") val status: String?,
 )
