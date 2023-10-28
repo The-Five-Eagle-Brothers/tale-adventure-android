@@ -10,6 +10,8 @@ object PublicString {
     const val GET_CHAPTER_WORD_PATH = "/word/retrieve"
     const val GET_MY_WORD_PATH = "/word/retrieve/book-mark"
     const val PATCH_WORD_IS_BOOKMARKED_PATH = "/word/update/book-mark"
+    const val CHECK_USER_INFO_VALID_PATH = "/member/valid"
+    const val SET_AGE_PATH = "/member/set/age"
 
     // Error Messages
     const val SERVER_CONNECTION_ERROR_MESSAGE = "서버와 연결하는데 실패하였습니다"
