@@ -16,7 +16,6 @@ import com.open6.taleadventure.presentation.login.viewmodel.LoginViewModel
 import com.open6.taleadventure.presentation.main.view.MainActivity
 import com.open6.taleadventure.presentation.onboard.view.OnboardActivity
 import com.open6.taleadventure.util.PublicString.ACCESS_TOKEN
-import com.open6.taleadventure.util.PublicString.DID_USER_WATCHED_ONBOARD
 import com.open6.taleadventure.util.extensions.makeToastMessage
 import timber.log.Timber
 
@@ -33,20 +32,12 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
     private fun setAutoLogin() {
         val isUserLoggedIn = !TaleAdventureSharedPreferences.getString(ACCESS_TOKEN).isNullOrBlank()
         if (!isUserLoggedIn) return
-
-        val didUserWatchedOnboard =
-            TaleAdventureSharedPreferences.getBoolean(DID_USER_WATCHED_ONBOARD)
-        if (didUserWatchedOnboard) {
-            startActivity(Intent(this, MainActivity::class.java))
-            if (!isFinishing) finish()
-        } else {
-            startActivity(Intent(this, OnboardActivity::class.java))
-            if (!isFinishing) finish()
-        }
+        viewModel.checkUserInfoValid()
     }
 
     private fun setObservers() {
         setLoginWithKakaoResponseObservers()
+        setCheckUserInfoValidResponseObservers()
     }
 
     private fun setLoginWithKakaoResponseObservers() {
@@ -59,20 +50,35 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
             TaleAdventureSharedPreferences.setString(
                 ACCESS_TOKEN, getString(R.string.app_token_wrapper, successData?.appToken)
             )
-            val didUserWatchedOnboard =
-                TaleAdventureSharedPreferences.getBoolean(DID_USER_WATCHED_ONBOARD)
-            if (didUserWatchedOnboard) {
-                startActivity(Intent(this, MainActivity::class.java))
-                if (!isFinishing) finish()
-            } else {
-                startActivity(Intent(this, OnboardActivity::class.java))
-                if (!isFinishing) finish()
-            }
+            viewModel.checkUserInfoValid()
         }
     }
 
     private fun setLoginWithKakaoErrorResponseObservers() {
         viewModel.loginWithKakaoErrorResponse.observe(this) { errorMessage ->
+            makeToastMessage(errorMessage)
+        }
+    }
+
+    private fun setCheckUserInfoValidResponseObservers() {
+        setCheckUserInfoValidSuccessResponseObservers()
+        setCheckUserInfoValidErrorResponseObservers()
+    }
+
+    private fun setCheckUserInfoValidSuccessResponseObservers() {
+        viewModel.checkUserInfoValidSuccessResponse.observe(this) { successData ->
+            if (successData == null) {
+                startActivity(Intent(this, OnboardActivity::class.java))
+                if (!isFinishing) finish()
+            } else {
+                startActivity(Intent(this, MainActivity::class.java))
+                if (!isFinishing) finish()
+            }
+        }
+    }
+
+    private fun setCheckUserInfoValidErrorResponseObservers() {
+        viewModel.checkUserInfoValidErrorResponse.observe(this) { errorMessage ->
             makeToastMessage(errorMessage)
         }
     }

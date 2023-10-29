@@ -31,4 +31,21 @@ class LoginViewModel : ViewModel() {
         }
     }
 
+    private val _checkUserInfoValidSuccessResponse: MutableLiveData<Int?> = MutableLiveData()
+    val checkUserInfoValidSuccessResponse: LiveData<Int?> = _checkUserInfoValidSuccessResponse
+
+    private val _checkUserInfoValidErrorResponse: MutableLiveData<String> = MutableLiveData()
+    val checkUserInfoValidErrorResponse: LiveData<String> = _checkUserInfoValidErrorResponse
+
+    fun checkUserInfoValid() {
+        viewModelScope.launch {
+            runCatching {
+                loginService.checkUserInfoValid()
+            }.fold(onSuccess = { successResponse ->
+                _checkUserInfoValidSuccessResponse.value = successResponse.data
+            }, onFailure = { errorMessage ->
+                _checkUserInfoValidErrorResponse.value = "회원 정보를 찾을 수 없습니다. 다시 로그인해주세요."
+            })
+        }
+    }
 }
