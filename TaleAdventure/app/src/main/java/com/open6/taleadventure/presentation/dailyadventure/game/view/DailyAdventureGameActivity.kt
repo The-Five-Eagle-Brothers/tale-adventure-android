@@ -11,6 +11,7 @@ class DailyAdventureGameActivity : BaseViewBindingActivity<ActivityDailyAdventur
         super.onCreate(savedInstanceState)
 
         setViews()
+        setClickEvents()
     }
 
     private fun setViews() {
@@ -22,6 +23,16 @@ class DailyAdventureGameActivity : BaseViewBindingActivity<ActivityDailyAdventur
         binding.wvDailyAdventureGame.run {
             settings.javaScriptEnabled = true
             loadUrl("https://tale-adventure-webview.vercel.app/")
+        }
+    }
+
+    private fun setClickEvents() {
+        setBackIvClickEvent()
+    }
+
+    private fun setBackIvClickEvent() {
+        binding.ivDailyAdventureGameBack.setOnClickListener {
+            if (!isFinishing) finish()
         }
     }
 
