@@ -31,5 +31,5 @@ object PublicString {
     // Notification
     const val NOTIFICATION_ID = 0
     const val NOTIFICATION_CONTENT_TITLE_KEY = "title"
-    const val NOTIFICATION_CONTENT_TEXT_KEY = "description"
+    const val NOTIFICATION_CONTENT_TEXT_KEY = "body"
 }
