@@ -9,7 +9,6 @@ import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.open6.taleadventure.data.remote.api.ApiFactory.ServicePool.setUserInfoService
 import com.open6.taleadventure.data.remote.model.userinfo.RequestSetAgeDto
-import com.open6.taleadventure.data.remote.model.userinfo.ResponseSetAgeDto
 import com.open6.taleadventure.util.extensions.getErrorMessage
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -18,8 +17,6 @@ class OnboardFirstViewModel : ViewModel() {
     private lateinit var ageMap: MutableMap<String, Int>
     fun setAgeMap(ageMap: MutableMap<String, Int>) {
         this.ageMap = ageMap
-        Timber.e(ageMap.toString())
-        Timber.e(this.ageMap.toString())
     }
 
     private val selectedView: MutableLiveData<View?> = MutableLiveData(null)
@@ -58,13 +55,14 @@ class OnboardFirstViewModel : ViewModel() {
         selectedAge.value = ageMap[newView.text]
     }
 
-    fun resetSelectedView() {
+    fun resetData() {
         selectedView.value = null
+        selectedAge.value = null
+        _setAgeSuccessResponse.value = false
     }
 
-    private val _setAgeSuccessResponse: MutableLiveData<ResponseSetAgeDto?> =
-        MutableLiveData<ResponseSetAgeDto?>()
-    val setAgeSuccessResponse: LiveData<ResponseSetAgeDto?> = _setAgeSuccessResponse
+    private val _setAgeSuccessResponse: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+    val setAgeSuccessResponse: LiveData<Boolean> = _setAgeSuccessResponse
 
     private val _setAgeErrorResponse: MutableLiveData<String> = MutableLiveData<String>()
     val setAgeErrorResponse: LiveData<String> = _setAgeErrorResponse
@@ -77,8 +75,8 @@ class OnboardFirstViewModel : ViewModel() {
                         age = selectedAge.value ?: throw NullPointerException()
                     )
                 )
-            }.fold(onSuccess = { successResponse ->
-                _setAgeSuccessResponse.value = successResponse.data
+            }.fold(onSuccess = {
+                _setAgeSuccessResponse.value = true
             }, onFailure = { error ->
                 _setAgeErrorResponse.value = error.getErrorMessage()
             })

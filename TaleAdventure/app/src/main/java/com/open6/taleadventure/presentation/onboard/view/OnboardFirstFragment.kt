@@ -38,9 +38,10 @@ class OnboardFirstFragment :
     }
 
     private fun setSetAgeSuccessResponse() {
-        viewModel.setAgeSuccessResponse.observe(viewLifecycleOwner) { successData ->
+        viewModel.setAgeSuccessResponse.observe(viewLifecycleOwner) { isSuccessful ->
+            if (!isSuccessful) return@observe
             findNavController().navigate(R.id.action_onboardFirstFragment_to_onboardSecondFragment)
-            viewModel.resetSelectedView()
+            viewModel.resetData()
         }
     }
 
