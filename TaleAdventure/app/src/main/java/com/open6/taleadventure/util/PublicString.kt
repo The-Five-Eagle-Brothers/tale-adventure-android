@@ -12,6 +12,7 @@ object PublicString {
     const val PATCH_WORD_IS_BOOKMARKED_PATH = "/word/update/book-mark"
     const val CHECK_USER_INFO_VALID_PATH = "/member/valid"
     const val SET_AGE_PATH = "/member/set/age"
+    const val SET_NICKNAME_PATH = "/member/set/nickname"
 
     // Error Messages
     const val SERVER_CONNECTION_ERROR_MESSAGE = "서버와 연결하는데 실패하였습니다"
@@ -22,6 +23,7 @@ object PublicString {
     const val ACCESS_TOKEN = "access token"
     const val DID_USER_CHOOSE_TO_BE_NOTIFIED = "did user choose to be notified"
     const val DID_USER_WATCHED_ONBOARDING = "did user watched onboarding"
+    const val USER_NICKNAME = "user nickname"
 
     // Intent Extra Key
     const val TALE_NAME = "tale name"

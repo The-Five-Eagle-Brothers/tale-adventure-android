@@ -13,6 +13,7 @@ import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragmen
 import com.open6.taleadventure.presentation.login.view.LoginActivity
 import com.open6.taleadventure.presentation.mypage.viewmodel.MyPageViewModel
 import com.open6.taleadventure.util.PublicString.DID_USER_CHOOSE_TO_BE_NOTIFIED
+import com.open6.taleadventure.util.PublicString.USER_NICKNAME
 import timber.log.Timber
 
 class MyPageFragment : BaseDataBindingFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
@@ -60,7 +61,11 @@ class MyPageFragment : BaseDataBindingFragment<FragmentMyPageBinding>(R.layout.f
     }
 
     private fun setNickNameTV() {
-        binding.tvMyPageNickname.text = getString(R.string.my_page_nickname, "잰조")
+        binding.tvMyPageNickname.text = getString(
+            R.string.my_page_nickname, TaleAdventureSharedPreferences.getString(
+                USER_NICKNAME
+            )
+        )
     }
 
     private fun setSocialTV() {
