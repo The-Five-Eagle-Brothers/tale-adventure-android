@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.viewModels
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -16,6 +18,7 @@ import com.open6.taleadventure.presentation.login.viewmodel.LoginViewModel
 import com.open6.taleadventure.presentation.main.view.MainActivity
 import com.open6.taleadventure.presentation.onboard.view.OnboardActivity
 import com.open6.taleadventure.util.PublicString.ACCESS_TOKEN
+import com.open6.taleadventure.util.PublicString.DID_USER_WATCHED_ONBOARDING
 import com.open6.taleadventure.util.extensions.makeToastMessage
 import timber.log.Timber
 
@@ -31,8 +34,20 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
 
     private fun setAutoLogin() {
         val isUserLoggedIn = !TaleAdventureSharedPreferences.getString(ACCESS_TOKEN).isNullOrBlank()
+        val didUserWatchedOnboard =
+            TaleAdventureSharedPreferences.getBoolean(DID_USER_WATCHED_ONBOARDING)
+                .also { Timber.e("onboard? : $it") }
+
         if (!isUserLoggedIn) return
-        viewModel.checkUserInfoValid()
+
+        if (didUserWatchedOnboard) {
+            startActivity(Intent(this, MainActivity::class.java))
+            if (!isFinishing) finish()
+            return
+        }
+
+        startActivity(Intent(this, OnboardActivity::class.java))
+        if (!isFinishing) finish()
     }
 
     private fun setObservers() {
@@ -68,9 +83,11 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
     private fun setCheckUserInfoValidSuccessResponseObservers() {
         viewModel.checkUserInfoValidSuccessResponse.observe(this) { successData ->
             if (successData == null) {
+                TaleAdventureSharedPreferences.setBoolean(DID_USER_WATCHED_ONBOARDING, false)
                 startActivity(Intent(this, OnboardActivity::class.java))
                 if (!isFinishing) finish()
             } else {
+                TaleAdventureSharedPreferences.setBoolean(DID_USER_WATCHED_ONBOARDING, true)
                 startActivity(Intent(this, MainActivity::class.java))
                 if (!isFinishing) finish()
             }
@@ -94,6 +111,7 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
                     Timber.e("카카오계정으로 로그인 실패 : $error")
                 } else if (token != null) {
                     Timber.e("카카오계정으로 로그인 성공 : ${token.accessToken}")
+                    val fcmToken = getFcmToken()
                     viewModel.loginWithKakao(token.accessToken)
                 }
             }
@@ -121,6 +139,20 @@ class LoginActivity : BaseViewBindingActivity<ActivityLoginBinding>() {
                 UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
             }
         }
+    }
+
+    private fun getFcmToken(): String? {
+        var token: String? = null
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Timber.e(task.exception, "Fetching FCM registration token failed")
+                return@OnCompleteListener
+            }
+            // Get new FCM registration token
+            token = task.result
+            Timber.tag("FCM").d("token is $token")
+        })
+        return token
     }
 
     override fun setBinding(inflater: LayoutInflater): ActivityLoginBinding =
