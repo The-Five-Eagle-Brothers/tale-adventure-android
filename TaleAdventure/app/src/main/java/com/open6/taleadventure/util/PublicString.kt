@@ -19,10 +19,17 @@ object PublicString {
     const val UNEXPECTED_ERROR_MESSAGE = "예기치 못한 에러가 발생하였습니다"
 
     // SharedPreferences
-    const val ACCESS_TOKEN = "ACCESS_TOKEN"
+    const val ACCESS_TOKEN = "access token"
+    const val DID_USER_CHOOSE_TO_BE_NOTIFIED = "did user choose to be notified"
+    const val DID_USER_WATCHED_ONBOARDING = "did user watched onboarding"
 
     // Intent Extra Key
-    const val TALE_NAME = "TALE_NAME"
-    const val CHAPTER_NAME = "CHAPTER_NAME"
-    const val IS_FROM_CHAPTER = "IS_FROM_CHAPTER"
+    const val TALE_NAME = "tale name"
+    const val CHAPTER_NAME = "chapter name"
+    const val IS_FROM_CHAPTER = "is from chapter"
+
+    // Notification
+    const val NOTIFICATION_ID = 0
+    const val NOTIFICATION_CONTENT_TITLE_KEY = "title"
+    const val NOTIFICATION_CONTENT_TEXT_KEY = "description"
 }

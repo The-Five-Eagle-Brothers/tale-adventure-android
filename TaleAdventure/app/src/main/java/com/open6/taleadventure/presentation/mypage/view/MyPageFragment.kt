@@ -12,6 +12,7 @@ import com.open6.taleadventure.databinding.FragmentMyPageBinding
 import com.open6.taleadventure.presentation.base.fragment.BaseDataBindingFragment
 import com.open6.taleadventure.presentation.login.view.LoginActivity
 import com.open6.taleadventure.presentation.mypage.viewmodel.MyPageViewModel
+import com.open6.taleadventure.util.PublicString.DID_USER_CHOOSE_TO_BE_NOTIFIED
 import timber.log.Timber
 
 class MyPageFragment : BaseDataBindingFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
@@ -38,7 +39,7 @@ class MyPageFragment : BaseDataBindingFragment<FragmentMyPageBinding>(R.layout.f
 
     private fun logout() {
         TaleAdventureSharedPreferences.clear()
-        
+
         val activity = requireActivity()
         startActivity(Intent(activity, LoginActivity::class.java))
         if (!activity.isFinishing) {
@@ -74,6 +75,31 @@ class MyPageFragment : BaseDataBindingFragment<FragmentMyPageBinding>(R.layout.f
                 binding.tvMyPageEmail.text = user.kakaoAccount?.email
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        setNotificationPermissionSwitchChecked()
+    }
+
+    private fun setNotificationPermissionSwitchChecked() {
+        binding.switchMyPageNotification.isChecked =
+            TaleAdventureSharedPreferences.getBoolean(
+                DID_USER_CHOOSE_TO_BE_NOTIFIED
+            )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        setDidUserChooseToBeNotified()
+    }
+
+    private fun setDidUserChooseToBeNotified() {
+        TaleAdventureSharedPreferences.setBoolean(
+            DID_USER_CHOOSE_TO_BE_NOTIFIED,
+            binding.switchMyPageNotification.isChecked
+        )
     }
 
     override fun bindViewModelWithBinding() {

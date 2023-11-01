@@ -80,4 +80,6 @@
     <string name="game_indicator">%d/%d</string>
     <string name="error_not_ye">아직 준비되지 않은 기능입니다.</string>
     <string name="error_no_bookmark">북마크 된 단어가 없습니다.</string>
+    <string name="channel_name">Tale Adventure 알림 채널</string>
+    <string name="channel_desc">Tale Adventure 알림을 위한 채널</string>
 </resources>
