@@ -76,7 +76,7 @@
     <string name="end_good_job">참 잘했어요!</string>
     <string name="grade_correct">정답이에요!</string>
     <string name="grade_incorrect">다시 해볼까요?</string>
-    <string name="nickname_example">잰조</string>
+    <string name="nickname_example">익명의 여행자</string>
     <string name="game_indicator">%d/%d</string>
     <string name="error_not_ye">아직 준비되지 않은 기능입니다.</string>
     <string name="error_no_bookmark">북마크 된 단어가 없습니다.</string>
